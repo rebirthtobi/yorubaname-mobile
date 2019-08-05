@@ -1,0 +1,35 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-react"
+    ],
+    "jsRules": {},
+    "rules": {
+        "indent": [true, "spaces", 4],
+        "await-promise": true,
+        "jsx-boolean-value": [true, "never"],
+        "max-line-length": false,
+        "no-boolean-literal-compare": true,
+        "no-console": false,
+        "no-floating-promises": true,
+        "no-for-in-array": true,
+        "no-implicit-dependencies": false,
+        "no-shadowed-variable": false,
+        "no-submodule-imports": false,
+        "no-unnecessary-type-assertion": true,
+        "no-unused-expression": true,
+        "no-void-expression": [true, "ignore-arrow-function-shorthand"],
+        "ordered-imports": false,
+        "prefer-conditional-expression": false,
+        "prefer-template": true,
+        "restrict-plus-operands": true,
+        "trailing-comma": [
+            true,
+            {
+                "esSpecCompliant": true
+            }
+        ]
+    },
+    "rulesDirectory": []
+}
