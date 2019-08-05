@@ -65,5 +65,8 @@ buck-out/
 # VS Code
 .vscode/
 
-#IntelliJ Idea
+# IntelliJ Idea
 .idea/
+
+# Code Coverage
+coverage/

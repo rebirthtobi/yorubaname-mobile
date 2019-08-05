@@ -7,6 +7,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "test": "jest",
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "lint": "concurrently --kill-others-on-fail 'yarn run lint:es' 'yarn run lint:ts'",
     "lint:es": "eslint .",
     "lint:ts": "tslint -c tslint.json --project tsconfig.json"
@@ -24,6 +25,7 @@
     "@types/react-native": "^0.60.3",
     "@types/react-test-renderer": "^16.8.3",
     "babel-jest": "^24.8.0",
+    "codacy-coverage": "^3.4.0",
     "concurrently": "^4.1.1",
     "eslint": "^6.1.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
