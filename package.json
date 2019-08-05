@@ -6,13 +6,14 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "jest",
-    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "test": "jest -u",
+    "test:coverage": "jest --coverage -u && cat ./coverage/lcov.info | codacy-coverage",
     "lint": "concurrently --kill-others-on-fail 'yarn run lint:es' 'yarn run lint:ts'",
     "lint:es": "eslint .",
     "lint:ts": "tslint -c tslint.json --project tsconfig.json"
   },
   "dependencies": {
+    "native-base": "^2.13.4",
     "react": "16.8.6",
     "react-native": "0.60.4"
   },
@@ -20,6 +21,7 @@
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
+    "@testing-library/react-native": "^4.0.7",
     "@types/jest": "^24.0.16",
     "@types/react": "^16.8.24",
     "@types/react-native": "^0.60.3",
@@ -31,7 +33,6 @@
     "eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.55.0",
-    "react-test-renderer": "16.8.6",
     "tslint": "^5.18.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3"

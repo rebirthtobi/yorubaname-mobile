@@ -70,3 +70,6 @@ buck-out/
 
 # Code Coverage
 coverage/
+
+# Testing Snapshot
+__snapshots__/
