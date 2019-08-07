@@ -24,6 +24,7 @@
         "prefer-conditional-expression": false,
         "prefer-template": true,
         "restrict-plus-operands": true,
+        "member-access": false,
         "trailing-comma": [
             true,
             {
