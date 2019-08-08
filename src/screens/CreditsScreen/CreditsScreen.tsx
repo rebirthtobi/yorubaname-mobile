@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import React, { Component } from "react";
+import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 
 class CreditsScreen extends Component {
     render() {
@@ -11,4 +12,4 @@ class CreditsScreen extends Component {
     }
 }
 
-export default CreditsScreen;
+export default withBottomNavigation(CreditsScreen);

@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import React, { Component } from "react";
+import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 
 class AboutScreen extends Component {
     render() {
@@ -11,4 +12,4 @@ class AboutScreen extends Component {
     }
 }
 
-export default AboutScreen;
+export default withBottomNavigation(AboutScreen);

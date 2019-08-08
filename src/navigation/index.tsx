@@ -8,7 +8,7 @@ import {
 import { Routes, TabIcons } from "./constants";
 import AboutScreen from "../screens/AboutScreen/AboutScreen";
 import BlogScreen from "../screens/BlogScreen/BlogScreen";
-import Colours from "../lib/colours";
+import Colours from "../lib/colours/colours";
 import CreditsScreen from "../screens/CreditsScreen/CreditsScreen";
 import DonateScreen from "../screens/DonateScreen/DonateScreen";
 import Icon from "react-native-vector-icons/Feather";
@@ -29,7 +29,10 @@ const AboutNavigation = createDrawerNavigator({
     [Routes.Donate]:    { screen: DonateScreen },
     [Routes.Volunteer]: { screen: VolunteerScreen },
     [Routes.Credits]:   { screen: CreditsScreen },
-}, { initialRouteName: Routes.About });
+}, {
+    drawerPosition:   "right",
+    initialRouteName: Routes.About,
+});
 
 const TabMenuNavigation = createBottomTabNavigator({
     [Routes.Search]:     { screen: SearchScreen },
@@ -37,12 +40,13 @@ const TabMenuNavigation = createBottomTabNavigator({
     [Routes.Blog]:       { screen: BlogScreen },
     [Routes.AboutStack]: { screen: AboutNavigation },
 }, {
-    defaultNavigationOptions: ({ navigation }: { navigation: NavigationScreenProp<NavigationRoute> }): object => ({
-        tabBarIcon: (iconProps: TabBarIconProps) => {
-            const { routeName } = navigation.state;
-            return getTabIcon(iconProps, routeName);
-        },
-    }),
+    defaultNavigationOptions: ({ navigation }: { navigation: NavigationScreenProp<NavigationRoute> }): object => {
+        const { routeName } = navigation.state;
+        return {
+            tabBarIcon:    (iconProps: TabBarIconProps) => getTabIcon(iconProps, routeName),
+            tabBarVisible: routeName !== Routes.About,
+        };
+    },
     initialRouteName: Routes.Search,
     tabBarOptions:    {
         activeBackgroundColor:   Colours.secondaryColour,

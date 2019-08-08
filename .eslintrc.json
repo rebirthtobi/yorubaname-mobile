@@ -48,7 +48,6 @@
         ]}],
         "no-mixed-spaces-and-tabs": "error",
         "no-trailing-spaces": "error",
-        "no-underscore-dangle": "error",
         "no-useless-constructor": "error",
         "no-useless-rename": "error",
         "no-var": "error",
