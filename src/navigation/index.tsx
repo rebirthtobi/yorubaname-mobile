@@ -53,7 +53,7 @@ const TabMenuNavigation = createBottomTabNavigator({
         activeTintColor:         Colours.primaryColour,
         inactiveBackgroundColor: Colours.primaryColour,
         inactiveTintColor:       Colours.secondaryColour,
-        labelStyle:              { fontSize: 16 },
+        labelStyle:              { fontSize: 12 },
         showIcon:                true,
         style:                   { borderTopWidth: 0 },
     },
@@ -67,4 +67,4 @@ const AppNavigation = createStackNavigator({
     initialRouteName: Routes.TabStack,
 });
 
-export default createAppContainer(AppNavigation);
+export default createAppContainer(TabMenuNavigation);

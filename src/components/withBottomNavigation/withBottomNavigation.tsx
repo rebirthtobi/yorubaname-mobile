@@ -1,13 +1,17 @@
-import { View } from "react-native";
+import { NavigationScreenProps } from "react-navigation";
+import { StyleSheet, View } from "react-native";
 import BottomNavigation from "../BottomNavigation/BottomNavigation";
 import React from "react";
 
-export default function withBottomNavigation<P>(WrappedComponent: React.ComponentType<P>) {
-    function withButtonNavigation(props: P) {
+const styles = StyleSheet.create({ mainView: { flex: 1 } });
+
+export default function withBottomNavigation<P>(WrappedComponent: React.ComponentType<NavigationScreenProps>) {
+    function withButtonNavigation(props: NavigationScreenProps) {
+        const { navigation } = props;
         return (
-            <View>
+            <View style={styles.mainView}>
                 <WrappedComponent {...props}/>
-                <BottomNavigation />
+                <BottomNavigation navigation={navigation}/>
             </View>
         );
     }

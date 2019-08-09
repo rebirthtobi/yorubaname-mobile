@@ -1,26 +1,48 @@
 import { autobind } from "core-decorators";
-import { NavigationInjectedProps, withNavigation } from "react-navigation";
+import { NavigationScreenProps } from "react-navigation";
 import { Routes } from "../../navigation/constants";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Colours from "../../lib/colours/colours";
 import Icon from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
 
-class BottomNavigation extends Component<NavigationInjectedProps> {
+const styles = StyleSheet.create({
+    bottomBar: {
+        alignItems:      "center",
+        backgroundColor: Colours.secondaryColour,
+        borderColor:     Colours.primaryColour,
+        borderTopWidth:  1,
+        flexDirection:   "row",
+        height:          49,
+        justifyContent:  "space-between",
+        marginTop:       "auto",
+        padding:         0,
+    },
+    button: {
+        backgroundColor:   Colours.secondaryColour,
+        fontSize:          12,
+        height:            "100%",
+        paddingHorizontal: 16,
+    },
+});
+
+class BottomNavigation extends Component<NavigationScreenProps> {
     render() {
         return (
-            <View style={{ flexDirection: "row" }}>
+            <View style={styles.bottomBar}>
                 <Icon.Button
                     name={"chevron-left"}
-                    color={Colours.primaryColour}
                     onPress={this._handleBackClick}
+                    color={Colours.primaryColour}
+                    style={styles.button}
                 >
                     Back
                 </Icon.Button>
                 <Icon.Button
                     name={"menu"}
-                    color={Colours.primaryColour}
                     onPress={this._handleDrawerToggle}
+                    color={Colours.primaryColour}
+                    style={styles.button}
                 />
             </View>
         );
@@ -38,4 +60,4 @@ class BottomNavigation extends Component<NavigationInjectedProps> {
         navigation.toggleDrawer();
     }
 }
-export default withNavigation(BottomNavigation);
+export default BottomNavigation;
