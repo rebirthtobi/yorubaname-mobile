@@ -21,7 +21,7 @@ import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
 const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactElement<any> => {
     const { tintColor } = iconProps;
     const iconName: string = (TabIcons as any)[routeName];
-    return <Icon name={iconName} color={tintColor || Colours.primaryColour} size={25}/>;
+    return <Icon name={iconName} color={tintColor || Colours.PrimaryColour} size={25}/>;
 };
 
 const AboutNavigation = createDrawerNavigator({
@@ -49,10 +49,11 @@ const TabMenuNavigation = createBottomTabNavigator({
     },
     initialRouteName: Routes.Search,
     tabBarOptions:    {
-        activeBackgroundColor:   Colours.secondaryColour,
-        activeTintColor:         Colours.primaryColour,
-        inactiveBackgroundColor: Colours.primaryColour,
-        inactiveTintColor:       Colours.secondaryColour,
+        activeBackgroundColor:   Colours.SecondaryColour,
+        activeTintColor:         Colours.PrimaryColour,
+        inactiveBackgroundColor: Colours.PrimaryColour,
+        inactiveTintColor:       Colours.SecondaryColour,
+        keyboardHidesTabBar:     true,
         labelStyle:              { fontSize: 12 },
         showIcon:                true,
         style:                   { borderTopWidth: 0 },
@@ -67,4 +68,4 @@ const AppNavigation = createStackNavigator({
     initialRouteName: Routes.TabStack,
 });
 
-export default createAppContainer(TabMenuNavigation);
+export default createAppContainer(AppNavigation);

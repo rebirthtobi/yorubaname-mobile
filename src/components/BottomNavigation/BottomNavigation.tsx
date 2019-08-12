@@ -9,8 +9,8 @@ import React, { Component } from "react";
 const styles = StyleSheet.create({
     bottomBar: {
         alignItems:      "center",
-        backgroundColor: Colours.secondaryColour,
-        borderColor:     Colours.primaryColour,
+        backgroundColor: Colours.SecondaryColour,
+        borderColor:     Colours.PrimaryColour,
         borderTopWidth:  1,
         flexDirection:   "row",
         height:          49,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         padding:         0,
     },
     button: {
-        backgroundColor:   Colours.secondaryColour,
+        backgroundColor:   Colours.SecondaryColour,
         fontSize:          12,
         height:            "100%",
         paddingHorizontal: 16,
@@ -33,7 +33,7 @@ class BottomNavigation extends Component<NavigationScreenProps> {
                 <Icon.Button
                     name={"chevron-left"}
                     onPress={this._handleBackClick}
-                    color={Colours.primaryColour}
+                    color={Colours.PrimaryColour}
                     style={styles.button}
                 >
                     Back
@@ -41,7 +41,7 @@ class BottomNavigation extends Component<NavigationScreenProps> {
                 <Icon.Button
                     name={"menu"}
                     onPress={this._handleDrawerToggle}
-                    color={Colours.primaryColour}
+                    color={Colours.PrimaryColour}
                     style={styles.button}
                 />
             </View>
