@@ -15,6 +15,7 @@ import Icon from "react-native-vector-icons/Feather";
 import NameListScreen from "../screens/NameListScreen/NameListScreen";
 import React from "react";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
+import Sidebar from "./sidebar";
 import SubmitNameScreen from "../screens/SubmitNameScreen/SubmitNameScreen";
 import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
 
@@ -30,6 +31,7 @@ const AboutNavigation = createDrawerNavigator({
     [Routes.Volunteer]: { screen: VolunteerScreen },
     [Routes.Credits]:   { screen: CreditsScreen },
 }, {
+    contentComponent: Sidebar,
     drawerPosition:   "right",
     initialRouteName: Routes.About,
 });
