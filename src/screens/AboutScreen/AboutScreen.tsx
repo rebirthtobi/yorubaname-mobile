@@ -1,14 +1,15 @@
 import { NavigationScreenProps } from "react-navigation";
-import { Text, View } from "react-native";
 import React, { Component } from "react";
+import Urls from "../../lib/urls/urls";
+import WebView from "../../components/WebView/WebView";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 
 class AboutScreen extends Component<NavigationScreenProps> {
     render() {
         return (
-            <View>
-                <Text>About Screen</Text>
-            </View>
+            <WebView
+                url={Urls.About}
+            />
         );
     }
 }

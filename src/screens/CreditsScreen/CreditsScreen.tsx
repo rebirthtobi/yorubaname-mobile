@@ -1,5 +1,6 @@
 import { NavigationScreenProps } from "react-navigation";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component } from "react";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 
@@ -7,7 +8,7 @@ class CreditsScreen extends Component<NavigationScreenProps> {
     render() {
         return (
             <View>
-                <Text>CreditsScreen</Text>
+                <LoadingState/>
             </View>
         );
     }
