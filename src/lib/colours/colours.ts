@@ -3,7 +3,7 @@ enum Colours {
     SecondaryColour = "#FFFFFF",
     DangerColour = "#EE7679",
     GreyColour = "#576372",
-    MutedColour = "#D5DAE3"
+    MutedColour = "#A7A8B0"
 }
 
 export default Colours;

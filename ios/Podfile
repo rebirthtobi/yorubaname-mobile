@@ -30,6 +30,8 @@ target 'yorubaname' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
   target 'yorubanameTests' do
     inherit! :search_paths
     # Pods for testing

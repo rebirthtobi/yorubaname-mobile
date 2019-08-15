@@ -6,6 +6,7 @@
     ],
     "jsRules": {},
     "rules": {
+        "arrow-parens": [true, "ban-single-arg-parens"],
         "indent": [true, "spaces", 4],
         "await-promise": true,
         "jsx-boolean-value": [true, "never"],
