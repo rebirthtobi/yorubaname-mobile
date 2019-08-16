@@ -2,6 +2,7 @@ import { autobind } from "core-decorators";
 import { WebView as RNWebView } from "react-native-webview";
 import { WebViewNavigation } from "react-native-webview/lib/WebViewTypes";
 import ErrorState from "../ErrorState/ErrorState";
+import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Loading from "../LoadingState/LoadingState";
 import NetInfo, { NetInfoState, NetInfoSubscription } from "@react-native-community/netinfo";
 import React, { Component, ReactElement } from "react";
@@ -41,7 +42,7 @@ export default class WebView extends Component<WebViewProps, WebViewState> {
             return (
                 <ErrorState
                     errorIcon={"cloud-off"}
-                    errorDesc={"Your internet is not reachable. Connect to a working internet to continue"}
+                    errorDesc={getTranslatedText("Your internet is not reachable. Connect to a working internet to continue")}
                 />
             );
         }

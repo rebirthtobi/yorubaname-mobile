@@ -6,6 +6,7 @@ import {
     ScrollView, StyleSheet, Text, View,
 } from "react-native";
 import Colours from "../lib/colours/colours";
+import getTranslatedText from "../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
 
@@ -43,7 +44,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             style={styles.button}
                             onPress={() => this._handleNavigation(Routes.About)}
                         >
-                            <Text style={styles.menuText}>About</Text>
+                            <Text style={styles.menuText}>{getTranslatedText("About")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"gift"}
@@ -52,7 +53,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             style={styles.button}
                             onPress={() => this._handleNavigation(Routes.Donate)}
                         >
-                            <Text style={styles.menuText}>Donate</Text>
+                            <Text style={styles.menuText}>{getTranslatedText("Donate")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"minimize"}
@@ -61,7 +62,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             style={styles.button}
                             onPress={() => this._handleNavigation(Routes.Volunteer)}
                         >
-                            <Text style={styles.menuText}>Volunteer</Text>
+                            <Text style={styles.menuText}>{getTranslatedText("Volunteer")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"award"}
@@ -70,7 +71,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             style={styles.button}
                             onPress={() => this._handleNavigation(Routes.Credits)}
                         >
-                            <Text style={styles.menuText}>Credits</Text>
+                            <Text style={styles.menuText}>{getTranslatedText("Credits")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"x"}

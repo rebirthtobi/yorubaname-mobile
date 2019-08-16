@@ -5,6 +5,7 @@ import {
 import Colours from "../../lib/colours/colours";
 import data from "../../data";
 import EmptyState from "../../components/EmptyState/EmptyState";
+import getTranslatedText from "../../lib/localization/getTranslatedText";
 import React, { Component, ReactElement } from "react";
 
 const styles = StyleSheet.create({
@@ -55,7 +56,7 @@ class NameListScreen extends Component {
 
     @autobind
     private _getEmptyState(): ReactElement {
-        return <EmptyState description={"There are no names submitted yet"}/>;
+        return <EmptyState description={getTranslatedText("There are no names submitted yet")}/>;
     }
 
     @autobind
