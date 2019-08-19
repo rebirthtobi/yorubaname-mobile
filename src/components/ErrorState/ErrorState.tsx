@@ -43,12 +43,13 @@ interface ErrorStateProps {
     errorCode?: number;
     errorDesc?: string;
     errorIcon?: string;
+    children?: ReactElement;
 }
 
 export default class ErrorState extends Component<ErrorStateProps> {
     render() {
         const {
-            errorDomain, errorDesc, errorCode, errorIcon,
+            children, errorDomain, errorDesc, errorCode, errorIcon,
         } = this.props;
 
         return (
@@ -56,6 +57,7 @@ export default class ErrorState extends Component<ErrorStateProps> {
                 {this._renderErrorImage(errorCode, errorIcon)}
                 {errorDomain && <Text style={styles.errorDomainStyle}> {errorDomain} </Text>}
                 <Text style={styles.errorDescStyle}> {errorDesc} </Text>
+                {children}
             </View>
         );
     }
