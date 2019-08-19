@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
 
 interface WebViewProps {
     url: string;
+    canNavigateInWebView?: boolean;
 }
 
 interface WebViewState {
@@ -107,8 +108,8 @@ export default class WebView extends Component<WebViewProps, WebViewState> {
     @autobind
     private _handleLoadRequest(request: WebViewNavigation): boolean {
         const { url } = request;
-        const { url: propsUrl } = this.props;
-        return url === propsUrl;
+        const { url: propsUrl, canNavigateInWebView } = this.props;
+        return (url === propsUrl) || !!canNavigateInWebView;
     }
 
     @autobind

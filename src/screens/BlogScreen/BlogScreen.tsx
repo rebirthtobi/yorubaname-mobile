@@ -1,12 +1,14 @@
-import { Text, View } from "react-native";
 import React, { Component } from "react";
+import Urls from "../../lib/urls/urls";
+import WebView from "../../components/WebView/WebView";
 
 class BlogScreen extends Component {
     render() {
         return (
-            <View>
-                <Text>BlogScreen</Text>
-            </View>
+            <WebView
+                url={Urls.Blog}
+                canNavigateInWebView
+            />
         );
     }
 }
