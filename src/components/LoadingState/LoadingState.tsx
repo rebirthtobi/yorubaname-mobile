@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
     loaderStyle: { paddingHorizontal: 16 },
 });
 
-export default function LoadingState(): ReactElement {
+export default function LoadingState({ small }: { small: boolean}): ReactElement {
     return (
-        <View style={styles.containerStyle}>
+        <View style={[!small && styles.containerStyle]}>
             <Image source={Loader} style={styles.loaderStyle}/>
         </View>
     );

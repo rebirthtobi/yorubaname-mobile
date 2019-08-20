@@ -9,6 +9,8 @@ export enum Routes {
     Donate = "Donate",
     Volunteer = "Volunteer",
     Credits = "Credits",
+    AppStack = "AppStack",
+    Splash = "Splash",
 }
 
 export const TabIcons = {

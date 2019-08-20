@@ -2,7 +2,7 @@ import {
     createAppContainer,
     createBottomTabNavigator,
     createDrawerNavigator,
-    createStackNavigator, NavigationRoute, NavigationScreenProp,
+    createStackNavigator, createSwitchNavigator, NavigationRoute, NavigationScreenProp,
     TabBarIconProps,
 } from "react-navigation";
 import { Routes, TabIcons } from "./constants";
@@ -18,6 +18,7 @@ import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import Sidebar from "./sidebar";
 import SubmitNameScreen from "../screens/SubmitNameScreen/SubmitNameScreen";
 import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
+import SplashScreen from "../screens/SplashScreen/SplashScreen";
 
 const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactElement<any> => {
     const { tintColor } = iconProps;
@@ -70,4 +71,12 @@ const AppNavigation = createStackNavigator({
     initialRouteName: Routes.TabStack,
 });
 
-export default createAppContainer(AppNavigation);
+const AppWithSplashNavigation = createSwitchNavigator({
+    [Routes.Splash]:   { screen: SplashScreen },
+    [Routes.AppStack]: { screen: AppNavigation },
+}, {
+    backBehavior:     "none",
+    initialRouteName: Routes.Splash,
+});
+
+export default createAppContainer(AppWithSplashNavigation);
