@@ -1,9 +1,11 @@
 import { autobind } from "core-decorators";
 import {
-    SectionList, SectionListData, SectionListRenderItem, StyleSheet, Text, View,
+    FlatList, StyleSheet, Text, View,
 } from "react-native";
+import { ItemType } from "../../lib/dataManager/data";
+import { NavigationScreenProps } from "react-navigation";
 import Colours from "../../lib/colours/colours";
-import data from "../../data";
+import DataManager from "../../lib/dataManager/dataManager";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import getTranslatedText from "../../lib/localization/getTranslatedText";
 import React, { Component, ReactElement } from "react";
@@ -28,25 +30,45 @@ const styles = StyleSheet.create({
     },
 });
 
-interface ItemType {
-    id: number;
-    name: string;
-}
-
-class NameListScreen extends Component {
+class NameListScreen extends Component<NavigationScreenProps> {
     render() {
         return (
-            <SectionList
+            <FlatList
+                data={this._getData()}
                 ItemSeparatorComponent={this._getItemSeparator}
-                sections={this._getSectionedData()}
-                renderSectionHeader={this._getSectionHeader}
                 renderItem={this._getItemComponent}
                 keyExtractor={this._getItemKey}
                 ListEmptyComponent={this._getEmptyState}
-                stickySectionHeadersEnabled
-                contentContainerStyle={styles.sectionContainerStyle}
             />
         );
+    }
+
+    public async _getData(): Promise<ItemType[]> {
+        const { navigation } = this.props;
+        const alphabet = navigation.getParam("alphabet");
+
+        if (!alphabet) {
+            return [];
+        }
+
+        const namesByAlphabet: ItemType | null = await DataManager.getData(`@name/${alphabet}`);
+
+        if (!namesByAlphabet) {
+            return [];
+        }
+
+        return namesByAlphabet.map((name: ItemType) => ({
+            etymology:       name.etymology,
+            extendedMeaning: name.extendedMeaning,
+            famousPeople:    name.famousPeople,
+            geoLocation:     name.geoLocation,
+            id:              name.id,
+            meaning:         name.meaning,
+            media:           name.media,
+            morphology:      name.morphology,
+            name:            name.name,
+            variants:        name.variants,
+        }));
     }
 
     @autobind
@@ -65,24 +87,8 @@ class NameListScreen extends Component {
     }
 
     @autobind
-    private _getSectionHeader({ section }: { section: SectionListData<any>}): ReactElement {
-        return (
-            <View>
-                <Text style={styles.sectionHeaderStyle}>
-                    {section.section}
-                </Text>
-            </View>
-        );
-    }
-
-    @autobind
-    private _getItemComponent({ item }: {item: SectionListRenderItem<any>}): ReactElement {
+    private _getItemComponent({ item }: {item: ItemType}): ReactElement {
         return <Text style={styles.listItemStyle}> {item.name} </Text>;
-    }
-
-    @autobind
-    private _getSectionedData(): Array<SectionListData<any>> {
-        return [];
     }
 }
 

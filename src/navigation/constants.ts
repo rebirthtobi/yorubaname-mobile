@@ -11,11 +11,12 @@ export enum Routes {
     Credits = "Credits",
     AppStack = "AppStack",
     Splash = "Splash",
+    Alphabet = "Alphabet",
 }
 
 export const TabIcons = {
     [Routes.Search]:   "search",
-    [Routes.NameList]: "list",
+    [Routes.Alphabet]: "list",
     [Routes.Blog]:     "edit-3",
     [Routes.About]:    "info",
 };

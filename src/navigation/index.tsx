@@ -7,6 +7,7 @@ import {
 } from "react-navigation";
 import { Routes, TabIcons } from "./constants";
 import AboutScreen from "../screens/AboutScreen/AboutScreen";
+import AlphabetsScreen from "../screens/AlphabetsScreen/AlphabetsScreen";
 import BlogScreen from "../screens/BlogScreen/BlogScreen";
 import Colours from "../lib/colours/colours";
 import CreditsScreen from "../screens/CreditsScreen/CreditsScreen";
@@ -16,9 +17,9 @@ import NameListScreen from "../screens/NameListScreen/NameListScreen";
 import React from "react";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import Sidebar from "./sidebar";
+import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import SubmitNameScreen from "../screens/SubmitNameScreen/SubmitNameScreen";
 import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
-import SplashScreen from "../screens/SplashScreen/SplashScreen";
 
 const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactElement<any> => {
     const { tintColor } = iconProps;
@@ -38,8 +39,11 @@ const AboutNavigation = createDrawerNavigator({
 });
 
 const TabMenuNavigation = createBottomTabNavigator({
-    [Routes.Search]:     { screen: SearchScreen },
-    [Routes.NameList]:   { screen: NameListScreen },
+    [Routes.Search]:   { screen: SearchScreen },
+    [Routes.Alphabet]: {
+        screen:            AlphabetsScreen,
+        navigationOptions: (): {} => ({ title: "All Names" }),
+    },
     [Routes.Blog]:       { screen: BlogScreen },
     [Routes.AboutStack]: { screen: AboutNavigation },
 }, {
@@ -66,6 +70,7 @@ const TabMenuNavigation = createBottomTabNavigator({
 const AppNavigation = createStackNavigator({
     [Routes.TabStack]:   { screen: TabMenuNavigation },
     [Routes.SubmitName]: { screen: SubmitNameScreen },
+    [Routes.NameList]:   { screen: NameListScreen },
 }, {
     headerMode:       "none",
     initialRouteName: Routes.TabStack,

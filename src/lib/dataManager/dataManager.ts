@@ -1,10 +1,10 @@
-import { AppInfoType } from "./data";
+import { AppInfoType, ItemType } from "./data";
 import AsyncStorage from "@react-native-community/async-storage";
 import Urls from "../urls/urls";
 
 const alphabet = "abdefghijklmnoprstuwy";
 
-function getAlphabetsArray(): string[] {
+export function getAlphabetsArray(): string[] {
     const alphabetArray = alphabet.split("");
     alphabetArray.splice(4, 0, "ẹ");
     alphabetArray.splice(7, 0, "gb");
@@ -19,7 +19,7 @@ export default class DataManager {
         await AsyncStorage.setItem(key, data);
     }
 
-    static async getData(key: string): Promise<AppInfoType | null> {
+    static async getData(key: string): Promise<AppInfoType | ItemType | null> {
         try {
             const data = await AsyncStorage.getItem(key);
             if (data) {
