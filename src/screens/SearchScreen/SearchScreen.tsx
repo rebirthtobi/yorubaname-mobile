@@ -1,16 +1,21 @@
 import { autobind } from "core-decorators";
-import { StatusBar, View } from "react-native";
+import { NavigationScreenProps } from "react-navigation";
+import { Routes } from "../../navigation/constants";
+import { StatusBar, StyleSheet, View } from "react-native";
 import Brand from "../../components/Brand/Brand";
 import Colours from "../../lib/colours/colours";
 import React, { Component } from "react";
 import SearchField from "../../components/SearchField/SearchField";
+import SubmitNameButton from "../../components/SubmitNameButton/SubmitNameButton";
+
+const styles = StyleSheet.create({ container: { flex: 1 } });
 
 interface SearchState {
     searchText: string;
 }
 
-class SearchScreen extends Component<{}, SearchState> {
-    constructor(props: {}) {
+class SearchScreen extends Component<NavigationScreenProps, SearchState> {
+    constructor(props: NavigationScreenProps) {
         super(props);
 
         this.state = { searchText: "" };
@@ -19,7 +24,7 @@ class SearchScreen extends Component<{}, SearchState> {
         const { searchText } = this.state;
 
         return (
-            <View>
+            <View style={styles.container}>
                 <StatusBar
                     backgroundColor={Colours.PrimaryColour}
                     barStyle={"light-content"}
@@ -29,6 +34,7 @@ class SearchScreen extends Component<{}, SearchState> {
                     searchText={searchText}
                     onChangeText={this._handleTextChange}
                 />
+                <SubmitNameButton onClick={this._navigateToSubmitNameScreen}/>
             </View>
         );
     }
@@ -36,6 +42,12 @@ class SearchScreen extends Component<{}, SearchState> {
     @autobind
     private _handleTextChange(searchText: string): void {
         this.setState({ searchText });
+    }
+
+    @autobind
+    private _navigateToSubmitNameScreen(): void {
+        const { navigation } = this.props;
+        navigation.navigate(Routes.SubmitName);
     }
 }
 

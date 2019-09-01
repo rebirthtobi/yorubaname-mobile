@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput } from "react-native";
 import Colours from "../../lib/colours/colours";
 import Positions from "../../lib/withIconPositions/withIconPositions";
-import React from "react";
+import React, { ReactElement } from "react";
 import withIcon from "../withIcon/withIcon";
 
 const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ interface SearchFieldProps {
     onChangeText(text: string): void;
 }
 
-const SearchField = ({ searchText, onChangeText, injectedStyles }: SearchFieldProps) => (
+const SearchField = ({ searchText, onChangeText, injectedStyles }: SearchFieldProps): ReactElement => (
     <TextInput
         value={searchText}
         style={{ ...styles.searchField, ...injectedStyles }}

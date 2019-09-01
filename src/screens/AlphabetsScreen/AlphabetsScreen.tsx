@@ -47,8 +47,8 @@ export default class AlphabetsScreen extends Component<NavigationScreenProps> {
     @autobind
     private _getItemComponent({ item }: { item: string }): ReactElement {
         return (
-            <TouchableOpacity onPress={() => this._handleOnItemPress(item)}>
-                <View style={styles.alphabetWrapper}>
+            <TouchableOpacity onPress={() => this._handleOnItemPress(item)} style={styles.alphabetWrapper}>
+                <View>
                     <Text style={styles.alphabetText}> {item} </Text>
                 </View>
             </TouchableOpacity>

@@ -2,7 +2,7 @@ export interface AppInfoType {
     isInitialised: boolean;
 }
 
-export interface ItemType {
+export interface NameType {
     id: number;
     name: string;
     meaning: string;
@@ -14,3 +14,9 @@ export interface ItemType {
     media: string;
     etymology: {};
 }
+
+export interface ItemType {
+    name: NameType[];
+}
+
+export type DataManagerType =  AppInfoType | ItemType | null;

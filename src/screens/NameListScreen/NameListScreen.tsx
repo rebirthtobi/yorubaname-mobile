@@ -1,23 +1,42 @@
 import { autobind } from "core-decorators";
+import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
 import {
     FlatList, StyleSheet, Text, View,
 } from "react-native";
-import { ItemType } from "../../lib/dataManager/data";
 import { NavigationScreenProps } from "react-navigation";
 import Colours from "../../lib/colours/colours";
 import DataManager from "../../lib/dataManager/dataManager";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import getTranslatedText from "../../lib/localization/getTranslatedText";
+import Icon from "react-native-vector-icons/Feather";
+import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
 
 const styles = StyleSheet.create({
+    headerContainer: {
+        alignItems:        "center",
+        backgroundColor:   Colours.PrimaryColour,
+        flexDirection:     "row",
+        height:            56,
+        paddingHorizontal: 16,
+        paddingVertical:   4,
+    },
+    headerIcon: { marginRight: "auto" },
+    headerText: {
+        color:      Colours.SecondaryColour,
+        flex:       1,
+        fontSize:   20,
+        fontWeight: "bold",
+        textAlign:  "center",
+    },
     itemSeparatorStyle: {
         backgroundColor: Colours.PrimaryColour,
         height:          0.5,
     },
     listItemStyle: {
-        color:             Colours.PrimaryColour,
+        color:             Colours.GreyColour,
         fontSize:          18,
+        minHeight:         50,
         paddingHorizontal: 16,
         paddingVertical:   8,
     },
@@ -30,34 +49,82 @@ const styles = StyleSheet.create({
     },
 });
 
-class NameListScreen extends Component<NavigationScreenProps> {
+interface NameListState {
+    isLoading: boolean;
+    data: NameType[];
+}
+
+class NameListScreen extends Component<NavigationScreenProps, NameListState> {
+    state: NameListState = {
+        data:      [],
+        isLoading: true,
+    };
+
+    async componentDidMount(): Promise<void> {
+        await this._getData();
+        // eslint-disable-next-line react/no-did-mount-set-state
+        this.setState({ isLoading: false });
+    }
+
     render() {
+        const { isLoading, data } = this.state;
+
+        if (isLoading) {
+            return <LoadingState />;
+        }
+
         return (
-            <FlatList
-                data={this._getData()}
-                ItemSeparatorComponent={this._getItemSeparator}
-                renderItem={this._getItemComponent}
-                keyExtractor={this._getItemKey}
-                ListEmptyComponent={this._getEmptyState}
-            />
+            <View>
+                <View style={styles.headerContainer}>
+                    <Icon
+                        name={"arrow-left"}
+                        color={Colours.SecondaryColour}
+                        size={40}
+                        style={styles.headerIcon}
+                        onPress={this._goBack}
+                    />
+                    <Text style={styles.headerText}>
+                        {`${this._getAlphabet()} - ${getTranslatedText("Names")}`}
+                    </Text>
+                </View>
+                <FlatList
+                    data={data}
+                    ItemSeparatorComponent={this._getItemSeparator}
+                    renderItem={this._getItemComponent}
+                    keyExtractor={this._getItemKey}
+                    ListEmptyComponent={this._getEmptyState}
+                />
+            </View>
         );
     }
 
-    public async _getData(): Promise<ItemType[]> {
+    @autobind
+    private _getAlphabet(): string {
         const { navigation } = this.props;
-        const alphabet = navigation.getParam("alphabet");
+        return navigation.getParam("alphabet");
+    }
+
+    @autobind
+    private async _getData(): Promise<void> {
+        const alphabet = this._getAlphabet();
 
         if (!alphabet) {
-            return [];
+            this.setState({
+                data:      [],
+                isLoading: false,
+            });
         }
 
-        const namesByAlphabet: ItemType | null = await DataManager.getData(`@name/${alphabet}`);
+        const namesByAlphabet: DataManagerType = await DataManager.getData(`@name/${alphabet}`) as ItemType;
 
         if (!namesByAlphabet) {
-            return [];
+            this.setState({
+                data:      [],
+                isLoading: false,
+            });
         }
 
-        return namesByAlphabet.map((name: ItemType) => ({
+        const nameData: NameType[] = namesByAlphabet!.name.map((name: NameType) => ({
             etymology:       name.etymology,
             extendedMeaning: name.extendedMeaning,
             famousPeople:    name.famousPeople,
@@ -69,10 +136,15 @@ class NameListScreen extends Component<NavigationScreenProps> {
             name:            name.name,
             variants:        name.variants,
         }));
+
+        this.setState({
+            data:      nameData,
+            isLoading: false,
+        });
     }
 
     @autobind
-    private _getItemKey(item: ItemType, index: number): string {
+    private _getItemKey(item: NameType, index: number): string {
         return `${item.id}${index}`;
     }
 
@@ -87,8 +159,14 @@ class NameListScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _getItemComponent({ item }: {item: ItemType}): ReactElement {
+    private _getItemComponent({ item }: {item: NameType}): ReactElement {
         return <Text style={styles.listItemStyle}> {item.name} </Text>;
+    }
+
+    @autobind
+    private _goBack(): void {
+        const { navigation } = this.props;
+        navigation.goBack();
     }
 }
 

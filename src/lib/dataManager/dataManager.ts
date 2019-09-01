@@ -1,4 +1,4 @@
-import { AppInfoType, ItemType } from "./data";
+import { DataManagerType } from "./data";
 import AsyncStorage from "@react-native-community/async-storage";
 import Urls from "../urls/urls";
 
@@ -19,7 +19,7 @@ export default class DataManager {
         await AsyncStorage.setItem(key, data);
     }
 
-    static async getData(key: string): Promise<AppInfoType | ItemType | null> {
+    static async getData(key: string): Promise<DataManagerType> {
         try {
             const data = await AsyncStorage.getItem(key);
             if (data) {
