@@ -11,6 +11,7 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
+import {Routes} from "../../navigation/constants";
 
 const styles = StyleSheet.create({
     headerContainer: {
@@ -160,13 +161,19 @@ class NameListScreen extends Component<NavigationScreenProps, NameListState> {
 
     @autobind
     private _getItemComponent({ item }: {item: NameType}): ReactElement {
-        return <Text style={styles.listItemStyle}> {item.name} </Text>;
+        return <Text style={styles.listItemStyle} onPress={() => this._handleItemClick(item)}> {item.name} </Text>;
     }
 
     @autobind
     private _goBack(): void {
         const { navigation } = this.props;
         navigation.goBack();
+    }
+
+    @autobind
+    private _handleItemClick(item: NameType): void {
+        const { navigation } = this.props;
+        navigation.navigate(Routes.NameScreen, { item });
     }
 }
 

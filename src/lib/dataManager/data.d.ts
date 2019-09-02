@@ -2,17 +2,27 @@ export interface AppInfoType {
     isInitialised: boolean;
 }
 
+export interface EtymologyType {
+    part: string;
+    meaning: string;
+}
+
+export interface GeoLocationType {
+    place: string;
+    region: string;
+}
+
 export interface NameType {
     id: number;
     name: string;
     meaning: string;
     extendedMeaning: string;
     morphology: string;
-    geoLocation: {};
+    geoLocation: GeoLocationType[];
     famousPeople: string;
     variants: string;
     media: string;
-    etymology: {};
+    etymology: EtymologyType[];
 }
 
 export interface ItemType {

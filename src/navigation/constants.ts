@@ -12,6 +12,7 @@ export enum Routes {
     AppStack = "AppStack",
     Splash = "Splash",
     Alphabet = "Alphabet",
+    NameScreen = "NameScreen",
 }
 
 export const TabIcons = {

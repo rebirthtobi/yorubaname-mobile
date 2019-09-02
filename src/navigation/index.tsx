@@ -14,6 +14,7 @@ import CreditsScreen from "../screens/CreditsScreen/CreditsScreen";
 import DonateScreen from "../screens/DonateScreen/DonateScreen";
 import Icon from "react-native-vector-icons/Feather";
 import NameListScreen from "../screens/NameListScreen/NameListScreen";
+import NameScreen from "../screens/NameScreen/NameScreen";
 import React from "react";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import Sidebar from "./sidebar";
@@ -41,8 +42,8 @@ const AboutNavigation = createDrawerNavigator({
 const TabMenuNavigation = createBottomTabNavigator({
     [Routes.Search]:   { screen: SearchScreen },
     [Routes.Alphabet]: {
-        screen:            AlphabetsScreen,
         navigationOptions: (): {} => ({ title: "All Names" }),
+        screen:            AlphabetsScreen,
     },
     [Routes.Blog]:       { screen: BlogScreen },
     [Routes.AboutStack]: { screen: AboutNavigation },
@@ -71,6 +72,7 @@ const AppNavigation = createStackNavigator({
     [Routes.TabStack]:   { screen: TabMenuNavigation },
     [Routes.SubmitName]: { screen: SubmitNameScreen },
     [Routes.NameList]:   { screen: NameListScreen },
+    [Routes.NameScreen]: { screen: NameScreen },
 }, {
     headerMode:       "none",
     initialRouteName: Routes.TabStack,
