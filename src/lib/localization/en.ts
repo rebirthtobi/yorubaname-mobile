@@ -13,6 +13,7 @@ export default {
     "Suggest a Name":                                                               "Suggest a Name",
     "There are no names submitted yet":                                             "There are no names submitted yet",
     "Volunteer":                                                                    "Volunteer",
+    "welcome":                                                                      "welcome",
     "Where did you hear or were given the name:":                                   "Where did you hear or were given the name:",
     "Your internet is not reachable. Connect to a working internet to continue":    "Your internet is not reachable. Connect to a working internet to continue",
     "Your search does not match any names":                                         "Your search does not match any names",
