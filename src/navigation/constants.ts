@@ -1,5 +1,6 @@
 export enum Routes {
     Search = "Search",
+    SearchResult = "SearchResult",
     SubmitName = "SubmitName",
     Blog = "Blog",
     NameList = "NameList",

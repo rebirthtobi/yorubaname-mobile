@@ -2,11 +2,11 @@ import { StyleSheet, View } from "react-native";
 import Colours from "../../lib/colours/colours";
 import Icon from "react-native-vector-icons/Feather";
 import React from "react";
-import withIconPositions from "../../lib/withIconPositions/withIconPositions";
 
 interface WithIconProps {
-    position: withIconPositions;
     name: string;
+    isMaterialDesign?: boolean;
+    onPress?(): void;
 }
 
 const styles = StyleSheet.create({
@@ -18,32 +18,38 @@ const styles = StyleSheet.create({
         flexDirection:    "row",
         marginHorizontal: 16,
     },
-    leftIcon: {
-        fontSize:   30,
-        marginLeft: 8,
+    icon: {
+        backgroundColor:   Colours.SecondaryColour,
+        paddingVertical:   7,
+        textAlign:         "center",
+        textAlignVertical: "center",
     },
     mainComponent: {
         borderWidth:      0,
         flex:             1,
         marginHorizontal: 0,
     },
-    rightIcon: {
-        fontSize:    30,
-        marginRight: 8,
+    material: {
+        borderBottomWidth: 1,
+        borderRadius:      0,
+        borderWidth:       0,
     },
 });
 
-function getIconStyle(position: withIconPositions): object {
-    return (position === withIconPositions.Right) ? styles.rightIcon : styles.leftIcon;
-}
-
-export default function withIcon<P>(WrappedComponent: React.ComponentType<P>, iconProps: WithIconProps) {
-    function withIcon(props: P) {
-        const { position, name } = iconProps;
+export default function withIcon<P>(WrappedComponent: React.ComponentType<P & WithIconProps>) {
+    function withIcon(props: P & WithIconProps) {
+        const { isMaterialDesign, name, onPress } = props;
         return (
-            <View style={styles.containerStyle}>
+            <View style={[styles.containerStyle, isMaterialDesign && styles.material]}>
                 <WrappedComponent {...props} injectedStyles={styles.mainComponent}/>
-                <Icon style={getIconStyle(position)} name={name} color={Colours.PrimaryColour}/>
+                <Icon.Button
+                    style={styles.icon}
+                    name={name}
+                    color={Colours.PrimaryColour}
+                    onPress={onPress}
+                    size={30}
+                    backgroundColor={Colours.SecondaryColour}
+                />
             </View>
         );
     }

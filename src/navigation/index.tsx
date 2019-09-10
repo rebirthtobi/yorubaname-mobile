@@ -16,6 +16,7 @@ import Icon from "react-native-vector-icons/Feather";
 import NameListScreen from "../screens/NameListScreen/NameListScreen";
 import NameScreen from "../screens/NameScreen/NameScreen";
 import React from "react";
+import SearchResultScreen from "../screens/SearchResultScreen/SearchResultScreen";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
 import Sidebar from "./sidebar";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
@@ -69,10 +70,11 @@ const TabMenuNavigation = createBottomTabNavigator({
 });
 
 const AppNavigation = createStackNavigator({
-    [Routes.TabStack]:   { screen: TabMenuNavigation },
-    [Routes.SubmitName]: { screen: SubmitNameScreen },
-    [Routes.NameList]:   { screen: NameListScreen },
-    [Routes.NameScreen]: { screen: NameScreen },
+    [Routes.TabStack]:     { screen: TabMenuNavigation },
+    [Routes.SubmitName]:   { screen: SubmitNameScreen },
+    [Routes.NameList]:     { screen: NameListScreen },
+    [Routes.NameScreen]:   { screen: NameScreen },
+    [Routes.SearchResult]: { screen: SearchResultScreen },
 }, {
     headerMode:       "none",
     initialRouteName: Routes.TabStack,

@@ -1,4 +1,5 @@
 import { autobind } from "core-decorators";
+import { getSearchStringProps } from "../../lib/search/search";
 import { NavigationScreenProps } from "react-navigation";
 import { Routes } from "../../navigation/constants";
 import { StatusBar, StyleSheet, View } from "react-native";
@@ -15,11 +16,8 @@ interface SearchState {
 }
 
 class SearchScreen extends Component<NavigationScreenProps, SearchState> {
-    constructor(props: NavigationScreenProps) {
-        super(props);
+    state: SearchState = { searchText: "" };
 
-        this.state = { searchText: "" };
-    }
     render() {
         const { searchText } = this.state;
 
@@ -33,6 +31,8 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
                 <SearchField
                     searchText={searchText}
                     onChangeText={this._handleTextChange}
+                    onPress={this._searchName}
+                    name="search"
                 />
                 <SubmitNameButton onClick={this._navigateToSubmitNameScreen}/>
             </View>
@@ -48,6 +48,21 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
     private _navigateToSubmitNameScreen(): void {
         const { navigation } = this.props;
         navigation.navigate(Routes.SubmitName);
+    }
+
+    @autobind
+    private _searchName(): void {
+        const { searchText } = this.state;
+        const { navigation } = this.props;
+
+        if (searchText && searchText.trim()) {
+            const searchProps = getSearchStringProps(searchText);
+            navigation.navigate(Routes.SearchResult, {
+                isSearchable: searchProps.isSearchable,
+                searchKey:    searchProps.searchKey,
+                searchText,
+            });
+        }
     }
 }
 

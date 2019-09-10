@@ -1,6 +1,5 @@
 import { StyleSheet, TextInput } from "react-native";
 import Colours from "../../lib/colours/colours";
-import Positions from "../../lib/withIconPositions/withIconPositions";
 import React, { ReactElement } from "react";
 import withIcon from "../withIcon/withIcon";
 
@@ -9,7 +8,7 @@ const styles = StyleSheet.create({
         borderColor:       Colours.PrimaryColour,
         borderRadius:      9,
         borderWidth:       1,
-        fontSize:          16,
+        fontSize:          18,
         paddingHorizontal: 16,
     },
 });
@@ -23,14 +22,9 @@ interface SearchFieldProps {
 const SearchField = ({ searchText, onChangeText, injectedStyles }: SearchFieldProps): ReactElement => (
     <TextInput
         value={searchText}
-        style={{ ...styles.searchField, ...injectedStyles }}
+        style={[styles.searchField, injectedStyles]}
         onChangeText={onChangeText}
     />
 );
 
-const iconProps = {
-    name:     "search",
-    position: Positions.Right,
-};
-
-export default withIcon(SearchField, iconProps);
+export default withIcon(SearchField);
