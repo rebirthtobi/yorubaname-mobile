@@ -1,8 +1,10 @@
 export default {
     "About":                                                                        "About",
+    "All fields are required and must be valid":                                    "All fields are required and must be valid",
     "Credits":                                                                      "Credits",
     "Details":                                                                      "Details",
     "Donate":                                                                       "Donate",
+    "Error submitting suggested name":                                              "Error submitting suggested name",
     "Meaning/History of Name":                                                      "Meaning/History of Name",
     "Names":                                                                        "Names",
     "Names database failed to initialized, You can try again in the settings menu": "Names database failed to initialized, You can try again in the settings menu",
@@ -12,6 +14,7 @@ export default {
     "Settings":                                                                     "Settings",
     "Suggest":                                                                      "Suggest",
     "Suggest a Name":                                                               "Suggest a Name",
+    "Suggested name submitted successfully":                                        "Suggested name submitted successfully",
     "There are no names submitted yet":                                             "There are no names submitted yet",
     "Updating Name Database":                                                       "Updating Name Database",
     "Updating of Name Database Fail":                                               "Updating of Name Database Fail",

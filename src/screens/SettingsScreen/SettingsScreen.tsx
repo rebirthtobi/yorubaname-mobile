@@ -137,7 +137,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
     private async _updateNames(updateNames: () => Promise<boolean>): Promise<void> {
         const isNamesUpdated = await updateNames();
         if (isNamesUpdated) {
-                Toast.show(getTranslatedText("Updating of Name Database Successful"), {
+            Toast.show(getTranslatedText("Updating of Name Database Successful"), {
                 animation:   true,
                 duration:    Toast.durations.LONG,
                 hideOnPress: false,

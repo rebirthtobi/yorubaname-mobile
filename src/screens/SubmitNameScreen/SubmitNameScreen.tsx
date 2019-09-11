@@ -1,15 +1,16 @@
 import { autobind } from "core-decorators";
 import { NavigationScreenProps } from "react-navigation";
 import {
-    KeyboardAvoidingView,
     StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
+import ApiManager from "../../lib/apiManager/apiManager";
 import Colours from "../../lib/colours/colours";
 import FloatingLabelInput from "../../components/FloatingTextField/FloatingTextField";
 import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
 import TextArea from "../../components/TextArea/TextArea";
+import Toast from "react-native-root-toast";
 
 const styles = StyleSheet.create({
     buttonContainer: {
@@ -58,6 +59,15 @@ interface SubmitNameState {
     email: string;
     details: string;
     locations: LocationType[];
+}
+
+function isValid(field: string): boolean {
+    return !!(field && field.trim());
+}
+
+function isEmailValid(field: string): boolean {
+    // eslint-disable-next-line max-len
+    return isValid(field) && !!field.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 }
 
 class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState> {
@@ -119,8 +129,9 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
     @autobind
     private _resetForm(): void {
         this.setState({
-            email: "",
-            name:  "",
+            details: "",
+            email:   "",
+            name:    "",
         });
     }
 
@@ -146,8 +157,38 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
     }
 
     @autobind
-    private _submitForm(): void {
-        this._resetForm();
+    private async _submitForm(): Promise<void> {
+        const { details, email, name } = this.state;
+
+        if (isValid(details) && isEmailValid(email) && isValid(name)) {
+            try {
+                await ApiManager.submitSuggestedName({ details, email, name });
+                this._resetForm();
+                Toast.show(getTranslatedText("Suggested name submitted successfully"), {
+                    animation:   true,
+                    duration:    Toast.durations.LONG,
+                    hideOnPress: false,
+                    position:    Toast.positions.BOTTOM,
+                    shadow:      true,
+                });
+            } catch (e) {
+                Toast.show(getTranslatedText("Error submitting suggested name"), {
+                    animation:   true,
+                    duration:    Toast.durations.LONG,
+                    hideOnPress: false,
+                    position:    Toast.positions.BOTTOM,
+                    shadow:      true,
+                });
+            }
+        } else {
+            Toast.show(getTranslatedText("All fields are required and must be valid"), {
+                animation:   true,
+                duration:    Toast.durations.LONG,
+                hideOnPress: false,
+                position:    Toast.positions.BOTTOM,
+                shadow:      true,
+            });
+        }
     }
 
     @autobind
