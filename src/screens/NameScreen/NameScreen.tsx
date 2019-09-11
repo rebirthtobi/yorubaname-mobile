@@ -11,6 +11,7 @@ import { NavigationScreenProps } from "react-navigation";
 import Colours from "../../lib/colours/colours";
 import NameSection from "../../components/NameSection/NameSection";
 import React, { Component } from "react";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     nameContainer: {
@@ -35,7 +36,7 @@ interface NameScreenState {
     nameObject: NameType;
 }
 
-export default class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
+class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
     render() {
         const {
             extendedMeaning,
@@ -81,3 +82,5 @@ export default class NameScreen extends Component<NavigationScreenProps, NameScr
         }
     }
 }
+
+export default withSafeAreaView(NameScreen);

@@ -8,6 +8,7 @@ import Colours from "../../lib/colours/colours";
 import React, { Component } from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import SubmitNameButton from "../../components/SubmitNameButton/SubmitNameButton";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({ container: { flex: 1 } });
 
@@ -66,4 +67,4 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
     }
 }
 
-export default SearchScreen;
+export default withSafeAreaView(SearchScreen);

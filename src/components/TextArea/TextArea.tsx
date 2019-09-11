@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         borderWidth:       1,
         color:             Colours.GreyColour,
         fontSize:          16,
-        maxHeight:         100,
+        height:            150,
         textAlignVertical: "top",
     },
 });

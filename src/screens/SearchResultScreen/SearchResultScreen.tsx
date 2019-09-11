@@ -1,6 +1,6 @@
 import { autobind } from "core-decorators";
 import {
-    FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View,
+    FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
 import { getSearchResult, getSearchStringProps, SearchProps } from "../../lib/search/search";
 import { NameType } from "../../lib/dataManager/data";
@@ -12,6 +12,7 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
 import SearchField from "../../components/SearchField/SearchField";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     itemSeparatorStyle: {
@@ -40,7 +41,7 @@ interface SearchResultState {
     searchResult: NameType[];
 }
 
-export default class SearchResultScreen extends Component<NavigationScreenProps, SearchResultState> {
+class SearchResultScreen extends Component<NavigationScreenProps, SearchResultState> {
     constructor(props: NavigationScreenProps) {
         super(props);
 
@@ -152,3 +153,5 @@ export default class SearchResultScreen extends Component<NavigationScreenProps,
         );
     }
 }
+
+export default withSafeAreaView(SearchResultScreen);

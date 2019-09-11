@@ -6,7 +6,7 @@ import React from "react";
 const styles = StyleSheet.create({ mainView: { flex: 1 } });
 
 export default function withBottomNavigation<P>(WrappedComponent: React.ComponentType<NavigationScreenProps>) {
-    function withButtonNavigation(props: NavigationScreenProps) {
+    function withBottomNavigation(props: NavigationScreenProps) {
         const { navigation } = props;
         return (
             <View style={styles.mainView}>
@@ -16,7 +16,7 @@ export default function withBottomNavigation<P>(WrappedComponent: React.Componen
         );
     }
 
-    withButtonNavigation.displayName = `withBottomNavigation(${WrappedComponent.displayName || WrappedComponent.name})`;
+    withBottomNavigation.displayName = `withBottomNavigation(${WrappedComponent.displayName || WrappedComponent.name})`;
 
-    return withButtonNavigation;
+    return withBottomNavigation;
 }

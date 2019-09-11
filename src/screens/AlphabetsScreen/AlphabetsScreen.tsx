@@ -7,6 +7,7 @@ import { NavigationScreenProps } from "react-navigation";
 import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
 import React, { Component, ReactElement } from "react";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     alphabetText: {

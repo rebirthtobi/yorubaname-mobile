@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     containerStyle: {
         alignItems:       "center",
         borderColor:      Colours.PrimaryColour,
-        borderRadius:     9,
+        borderRadius:     7,
         borderWidth:      1,
         flexDirection:    "row",
         marginHorizontal: 16,

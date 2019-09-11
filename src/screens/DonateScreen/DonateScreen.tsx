@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Urls from "../../lib/urls/urls";
 import WebView from "../../components/WebView/WebView";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 class DonateScreen extends Component<NavigationScreenProps> {
     render() {
@@ -14,4 +15,4 @@ class DonateScreen extends Component<NavigationScreenProps> {
     }
 }
 
-export default withBottomNavigation(DonateScreen);
+export default withSafeAreaView(withBottomNavigation(DonateScreen));

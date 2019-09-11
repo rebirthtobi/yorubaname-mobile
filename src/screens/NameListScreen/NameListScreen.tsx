@@ -12,6 +12,7 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     headerContainer: {
@@ -177,4 +178,4 @@ class NameListScreen extends Component<NavigationScreenProps, NameListState> {
     }
 }
 
-export default NameListScreen;
+export default withSafeAreaView(NameListScreen);

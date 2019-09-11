@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
 import TextArea from "../../components/TextArea/TextArea";
 import Toast from "react-native-root-toast";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     buttonContainer: {
@@ -197,4 +198,4 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
     }
 }
 
-export default SubmitNameScreen;
+export default withSafeAreaView(SubmitNameScreen);

@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/Feather";
 import React, { Component, ReactElement } from "react";
 import Toast from "react-native-root-toast";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     itemSeparatorStyle: {
@@ -156,4 +157,4 @@ class SettingsScreen extends Component<NavigationScreenProps> {
     }
 }
 
-export default withBottomNavigation(SettingsScreen);
+export default withSafeAreaView(withBottomNavigation(SettingsScreen));

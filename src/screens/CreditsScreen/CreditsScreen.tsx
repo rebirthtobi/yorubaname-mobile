@@ -8,6 +8,7 @@ import Colours from "../../lib/colours/colours";
 import React, { Component } from "react";
 import Urls from "../../lib/urls/urls";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
+import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
     creditTextStyle: {
@@ -53,4 +54,4 @@ class CreditsScreen extends Component<NavigationScreenProps> {
     }
 }
 
-export default withBottomNavigation(CreditsScreen);
+export default withSafeAreaView(withBottomNavigation(CreditsScreen));
