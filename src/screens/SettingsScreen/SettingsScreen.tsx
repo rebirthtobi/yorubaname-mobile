@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
         flexDirection:     "row",
         justifyContent:    "space-between",
         paddingHorizontal: 16,
-        paddingVertical:   12,
+        paddingVertical:   16,
     },
     listItemStyle: {
         color:    Colours.GreyColour,
-        fontSize: 18,
+        fontSize: 20,
     },
 });
 
@@ -124,10 +124,10 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                 animation:   true,
                 duration:    Toast.durations.SHORT,
                 hideOnPress: false,
-                onHidden:    () => this._updateNames(item.onPress!),
                 position:    Toast.positions.BOTTOM,
                 shadow:      true,
             });
+            this._updateNames(item.onPress!);
         } else {
             const { navigation } = this.props;
             navigation.navigate(Routes.Credits);
@@ -140,7 +140,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
         if (isNamesUpdated) {
             Toast.show(getTranslatedText("Updating of Name Database Successful"), {
                 animation:   true,
-                duration:    Toast.durations.LONG,
+                duration:    Toast.durations.SHORT,
                 hideOnPress: false,
                 position:    Toast.positions.BOTTOM,
                 shadow:      true,
@@ -148,7 +148,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
         } else {
             Toast.show(getTranslatedText("Updating of Name Database Fail"), {
                 animation:   true,
-                duration:    Toast.durations.LONG,
+                duration:    Toast.durations.SHORT,
                 hideOnPress: false,
                 position:    Toast.positions.BOTTOM,
                 shadow:      true,

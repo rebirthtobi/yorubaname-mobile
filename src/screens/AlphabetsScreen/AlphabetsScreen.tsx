@@ -1,12 +1,15 @@
+import { AppInfoType, DataManagerType } from "../../lib/dataManager/data";
 import { autobind } from "core-decorators";
 import {
     FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
-import { getAlphabetsArray } from "../../lib/dataManager/dataManager";
 import { NavigationScreenProps } from "react-navigation";
 import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
+import DataManager, { getAlphabetsArray } from "../../lib/dataManager/dataManager";
+import getTranslatedText from "../../lib/localization/getTranslatedText";
 import React, { Component, ReactElement } from "react";
+import Toast from "react-native-root-toast";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
@@ -46,7 +49,7 @@ export default class AlphabetsScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _getItemComponent({ item }: { item: string }): ReactElement {
+    private _getItemComponent({item}: { item: string }): ReactElement {
         return (
             <TouchableOpacity onPress={() => this._handleOnItemPress(item)} style={styles.alphabetWrapper}>
                 <View>
@@ -68,7 +71,23 @@ export default class AlphabetsScreen extends Component<NavigationScreenProps> {
 
     @autobind
     private _handleOnItemPress(item: string) {
-        const { navigation } = this.props;
-        navigation.navigate(Routes.NameList, { alphabet: item });
+        if (this._isAppInitialised()) {
+            const { navigation } = this.props;
+            navigation.navigate(Routes.NameList, { alphabet: item });
+        } else {
+            Toast.show(getTranslatedText("Names database is not initialized, Update this in settings menu"), {
+                animation:   true,
+                duration:    Toast.durations.LONG,
+                hideOnPress: false,
+                position:    Toast.positions.BOTTOM,
+                shadow:      true,
+            });
+        }
+    }
+
+    @autobind
+    private async _isAppInitialised(): Promise<boolean> {
+        const appInfo: DataManagerType = await DataManager.getData("@app") as AppInfoType;
+        return appInfo && appInfo.isInitialised;
     }
 }

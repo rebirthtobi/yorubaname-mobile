@@ -40,11 +40,12 @@ export default class DataManager {
         let isFetchingError: boolean = false;
 
         try {
-            const names: NameType[] = await this.getAllNames();
-            await this.storeAllNames(names);
-            await this.storeData("@app", JSON.stringify({ isInitialised: true }));
-        } catch (e) {
+            const names: NameType[] = await DataManager.getAllNames();
+            await DataManager.storeAllNames(names);
+            await DataManager.storeData("@app", JSON.stringify({ isInitialised: true }));
             isFetchingError = true;
+        } catch (e) {
+            isFetchingError = false;
         }
 
         return isFetchingError;
@@ -53,14 +54,13 @@ export default class DataManager {
     static async getAllNames(): Promise<any[]> {
         const alphabets = getAlphabetsArray();
         return Promise.all(alphabets.map(alphabet => ApiManager.fetchName(alphabet)))
-            .then(responses => ApiManager.processNameResponse(responses))
-            .then(names => this.storeAllNames(names));
+            .then(responses => ApiManager.processNameResponse(responses));
     }
 
     static async storeAllNames(names: NameType[]): Promise<void[]> {
         const alphabets = getAlphabetsArray();
         return Promise.all(
-            names.map((name, index) => this.storeData(`@name/${alphabets[index]}`,
+            names.map((name, index) => DataManager.storeData(`@name/${alphabets[index]}`,
                 JSON.stringify({ name })))
         );
     }
@@ -69,14 +69,15 @@ export default class DataManager {
         let isFetchingError: boolean = false;
 
         try {
-            await this.storeData("@app", JSON.stringify({ isInitialised: false }));
-            const names: NameType[] = await this.getAllNames();
+            await DataManager.storeData("@app", JSON.stringify({ isInitialised: false }));
+            const names: NameType[] = await DataManager.getAllNames();
             const namesKeys = getAlphabetsArray().map(alphabet => `@name/${alphabet}`);
-            await this.removeMultipleData(namesKeys);
-            await this.storeAllNames(names);
-            await this.storeData("@app", JSON.stringify({ isInitialised: true }));
-        } catch (e) {
+            await DataManager.removeMultipleData(namesKeys);
+            await DataManager.storeAllNames(names);
+            await DataManager.storeData("@app", JSON.stringify({ isInitialised: true }));
             isFetchingError = true;
+        } catch (e) {
+            isFetchingError = false;
         }
 
         return isFetchingError;

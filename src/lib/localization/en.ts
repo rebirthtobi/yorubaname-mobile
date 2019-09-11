@@ -8,6 +8,7 @@ export default {
     "Meaning/History of Name":                                                      "Meaning/History of Name",
     "Names":                                                                        "Names",
     "Names database failed to initialized, You can try again in the settings menu": "Names database failed to initialized, You can try again in the settings menu",
+    "Names database is not initialized, Update this in settings menu":              "Names database is not initialized, Update this in settings menu",
     "New Name":                                                                     "New Name",
     "Notification Email":                                                           "Notification Email",
     "Select":                                                                       "Select",
