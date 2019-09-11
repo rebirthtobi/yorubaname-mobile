@@ -1,6 +1,6 @@
-import { DataManagerType } from "./data";
+import { DataManagerType, NameType } from "./data";
+import ApiManager from "../apiManager/apiManager";
 import AsyncStorage from "@react-native-community/async-storage";
-import Urls from "../urls/urls";
 
 const alphabet = "abdefghijklmnoprstuwy";
 
@@ -32,15 +32,16 @@ export default class DataManager {
         }
     }
 
-    static async removeData(key: string): Promise<void> {
-        await AsyncStorage.removeItem(key);
+    static async removeMultipleData(key: string[]): Promise<void> {
+        await AsyncStorage.multiRemove(key);
     }
 
     static async initialiseApp(): Promise<boolean> {
         let isFetchingError: boolean = false;
 
         try {
-            await this.getAllNames();
+            const names: NameType[] = await this.getAllNames();
+            await this.storeAllNames(names);
             await this.storeData("@app", JSON.stringify({ isInitialised: true }));
         } catch (e) {
             isFetchingError = true;
@@ -49,10 +50,35 @@ export default class DataManager {
         return isFetchingError;
     }
 
-    static async getAllNames(): Promise<void[]> {
+    static async getAllNames(): Promise<any[]> {
         const alphabets = getAlphabetsArray();
-        return Promise.all(alphabets.map(alphabet => fetch(`${Urls.GetNameByAlphabet}${alphabet}`)))
-            .then(responses => Promise.all(responses.map(response => response.json())))
-            .then(names => Promise.all(names.map((name, index) => this.storeData(`@name/${alphabets[index]}`, JSON.stringify({ name })))));
+        return Promise.all(alphabets.map(alphabet => ApiManager.fetchName(alphabet)))
+            .then(responses => ApiManager.processNameResponse(responses))
+            .then(names => this.storeAllNames(names));
+    }
+
+    static async storeAllNames(names: NameType[]): Promise<void[]> {
+        const alphabets = getAlphabetsArray();
+        return Promise.all(
+            names.map((name, index) => this.storeData(`@name/${alphabets[index]}`,
+                JSON.stringify({ name })))
+        );
+    }
+
+    static async refreshNamesDb(): Promise<boolean> {
+        let isFetchingError: boolean = false;
+
+        try {
+            await this.storeData("@app", JSON.stringify({ isInitialised: false }));
+            const names: NameType[] = await this.getAllNames();
+            const namesKeys = getAlphabetsArray().map(alphabet => `@name/${alphabet}`);
+            await this.removeMultipleData(namesKeys);
+            await this.storeAllNames(names);
+            await this.storeData("@app", JSON.stringify({ isInitialised: true }));
+        } catch (e) {
+            isFetchingError = true;
+        }
+
+        return isFetchingError;
     }
 }

@@ -4,6 +4,7 @@ import {
     FlatList, StyleSheet, Text, View,
 } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
+import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
 import DataManager from "../../lib/dataManager/dataManager";
 import EmptyState from "../../components/EmptyState/EmptyState";
@@ -11,7 +12,6 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
-import {Routes} from "../../navigation/constants";
 
 const styles = StyleSheet.create({
     headerContainer: {

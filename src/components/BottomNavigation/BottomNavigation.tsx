@@ -51,7 +51,7 @@ class BottomNavigation extends Component<NavigationScreenProps> {
     @autobind
     private _handleBackClick(): void {
         const { navigation } = this.props;
-        navigation.navigate({ routeName: Routes.Search });
+        navigation.goBack();
     }
 
     @autobind

@@ -13,6 +13,7 @@ import React, { Component } from "react";
 const styles = StyleSheet.create({
     button: {
         backgroundColor:   Colours.SecondaryColour,
+        borderRadius:      0,
         height:            56,
         paddingHorizontal: 16,
         width:             "100%",
@@ -72,6 +73,15 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             onPress={() => this._handleNavigation(Routes.Credits)}
                         >
                             <Text style={styles.menuText}>{getTranslatedText("Credits")}</Text>
+                        </Icon.Button>
+                        <Icon.Button
+                            name={"settings"}
+                            size={20}
+                            color={Colours.PrimaryColour}
+                            style={styles.button}
+                            onPress={() => this._handleNavigation(Routes.Settings)}
+                        >
+                            <Text style={styles.menuText}>{getTranslatedText("Settings")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"x"}

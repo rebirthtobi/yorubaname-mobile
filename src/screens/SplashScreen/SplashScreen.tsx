@@ -1,4 +1,4 @@
-import { AppInfoType } from "../../lib/dataManager/data";
+import { AppInfoType, DataManagerType } from "../../lib/dataManager/data";
 import {
     Image, StyleSheet, Text, View,
 } from "react-native";
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         justifyContent:  "center",
         width:           "100%",
     },
-    logoStyle:           {
+    logoStyle: {
         alignSelf:    "center",
         height:       150,
         marginBottom: 16,
@@ -41,7 +41,7 @@ interface SplashScreenState {
 
 export default class SplashScreen extends Component<NavigationScreenProps, SplashScreenState> {
     async componentDidMount(): Promise<void> {
-        const appInfo: AppInfoType | null = await DataManager.getData("@app");
+        const appInfo: DataManagerType = await DataManager.getData("@app") as AppInfoType;
         const { navigation } = this.props;
 
         if (appInfo && appInfo.isInitialised) {

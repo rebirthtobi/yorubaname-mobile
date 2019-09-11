@@ -5,7 +5,8 @@ export enum Routes {
     Blog = "Blog",
     NameList = "NameList",
     About = "About",
-    AboutStack = "About",
+    SettingsStack = "Settings",
+    Settings = "Settings",
     TabStack = "TabStack",
     Donate = "Donate",
     Volunteer = "Volunteer",
@@ -19,6 +20,5 @@ export enum Routes {
 export const TabIcons = {
     [Routes.Search]:   "search",
     [Routes.Alphabet]: "list",
-    [Routes.Blog]:     "edit-3",
-    [Routes.About]:    "info",
+    [Routes.Settings]: "settings",
 };

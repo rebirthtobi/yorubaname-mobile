@@ -18,6 +18,7 @@ import NameScreen from "../screens/NameScreen/NameScreen";
 import React from "react";
 import SearchResultScreen from "../screens/SearchResultScreen/SearchResultScreen";
 import SearchScreen from "../screens/SearchScreen/SearchScreen";
+import SettingsScreen from "../screens/SettingsScreen/SettingsScreen";
 import Sidebar from "./sidebar";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import SubmitNameScreen from "../screens/SubmitNameScreen/SubmitNameScreen";
@@ -29,15 +30,17 @@ const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactE
     return <Icon name={iconName} color={tintColor || Colours.PrimaryColour} size={25}/>;
 };
 
-const AboutNavigation = createDrawerNavigator({
+const SettingsNavigation = createDrawerNavigator({
+    [Routes.Settings]:  { screen: SettingsScreen },
     [Routes.About]:     { screen: AboutScreen },
+    [Routes.Blog]:      { screen: BlogScreen },
     [Routes.Donate]:    { screen: DonateScreen },
     [Routes.Volunteer]: { screen: VolunteerScreen },
     [Routes.Credits]:   { screen: CreditsScreen },
 }, {
     contentComponent: Sidebar,
     drawerPosition:   "right",
-    initialRouteName: Routes.About,
+    initialRouteName: Routes.Settings,
 });
 
 const TabMenuNavigation = createBottomTabNavigator({
@@ -46,14 +49,13 @@ const TabMenuNavigation = createBottomTabNavigator({
         navigationOptions: (): {} => ({ title: "All Names" }),
         screen:            AlphabetsScreen,
     },
-    [Routes.Blog]:       { screen: BlogScreen },
-    [Routes.AboutStack]: { screen: AboutNavigation },
+    [Routes.SettingsStack]: { screen: SettingsNavigation },
 }, {
     defaultNavigationOptions: ({ navigation }: { navigation: NavigationScreenProp<NavigationRoute> }): object => {
         const { routeName } = navigation.state;
         return {
             tabBarIcon:    (iconProps: TabBarIconProps) => getTabIcon(iconProps, routeName),
-            tabBarVisible: routeName !== Routes.About,
+            tabBarVisible: routeName !== Routes.Settings,
         };
     },
     initialRouteName: Routes.Search,
