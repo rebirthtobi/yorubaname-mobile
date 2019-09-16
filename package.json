@@ -15,6 +15,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
     "@react-native-community/netinfo": "^4.1.4",
+    "@sentry/react-native": "^1.0.4",
     "core-decorators": "^0.20.0",
     "lodash": "^4.17.15",
     "react": "16.8.6",

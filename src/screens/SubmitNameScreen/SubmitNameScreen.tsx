@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react-native";
 import { autobind } from "core-decorators";
 import { NavigationScreenProps } from "react-navigation";
 import {
@@ -162,7 +163,15 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
         const { details, email, name } = this.state;
 
         if (isValid(details) && isEmailValid(email) && isValid(name)) {
+            Sentry.addBreadcrumb({
+                category: "suggest_name",
+                data:     { details, email, name },
+                level:    Sentry.Severity.Info,
+                message:  "Api call for Suggestion of name",
+            });
+
             try {
+                Sentry.captureMessage("Submitting suggest name form", Sentry.Severity.Info);
                 await ApiManager.submitSuggestedName({ details, email, name });
                 this._resetForm();
                 Toast.show(getTranslatedText("Suggested name submitted successfully"), {
@@ -172,7 +181,10 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
                     position:    Toast.positions.BOTTOM,
                     shadow:      true,
                 });
+                Sentry.captureMessage("Submitting form successful", Sentry.Severity.Info);
             } catch (e) {
+                Sentry.captureMessage("Submitting form", Sentry.Severity.Fatal);
+                Sentry.captureException(e);
                 Toast.show(getTranslatedText("Error submitting suggested name"), {
                     animation:   true,
                     duration:    Toast.durations.LONG,
@@ -182,6 +194,15 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
                 });
             }
         } else {
+            Sentry.addBreadcrumb({
+                category: "suggest_name",
+                data:     { details, email, name },
+                level:    Sentry.Severity.Info,
+                message:  "Suggestion of name incorrect data",
+            });
+
+            Sentry.captureMessage("Suggestion of name validation failed", Sentry.Severity.Error);
+
             Toast.show(getTranslatedText("All fields are required and must be valid"), {
                 animation:   true,
                 duration:    Toast.durations.LONG,

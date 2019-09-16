@@ -1,5 +1,6 @@
 import { autobind } from "core-decorators";
 import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
+import * as Sentry from "@sentry/react-native";
 import {
     FlatList, StyleSheet, Text, View,
 } from "react-native";
@@ -117,32 +118,23 @@ class NameListScreen extends Component<NavigationScreenProps, NameListState> {
             });
         }
 
-        const namesByAlphabet: DataManagerType = await DataManager.getData(`@name/${alphabet}`) as ItemType;
-
-        if (!namesByAlphabet) {
+        try {
+            const namesByAlphabet: DataManagerType = await DataManager.getData(`@name/${alphabet}`) as ItemType;
+            this.setState({
+                data:      this._extractNeededNameData(namesByAlphabet),
+                isLoading: false,
+            });
+        } catch (e) {
+            Sentry.configureScope(scope => {
+                Sentry.captureMessage("getting name list from async storage failed");
+                scope.setExtra("alphabet", alphabet);
+                Sentry.captureException(e);
+            });
             this.setState({
                 data:      [],
                 isLoading: false,
             });
         }
-
-        const nameData: NameType[] = namesByAlphabet!.name.map((name: NameType) => ({
-            etymology:       name.etymology,
-            extendedMeaning: name.extendedMeaning,
-            famousPeople:    name.famousPeople,
-            geoLocation:     name.geoLocation,
-            id:              name.id,
-            meaning:         name.meaning,
-            media:           name.media,
-            morphology:      name.morphology,
-            name:            name.name,
-            variants:        name.variants,
-        }));
-
-        this.setState({
-            data:      nameData,
-            isLoading: false,
-        });
     }
 
     @autobind
@@ -175,6 +167,22 @@ class NameListScreen extends Component<NavigationScreenProps, NameListState> {
     private _handleItemClick(item: NameType): void {
         const { navigation } = this.props;
         navigation.navigate(Routes.NameScreen, { item });
+    }
+
+    @autobind
+    private _extractNeededNameData(names: ItemType): NameType[] {
+        return names!.name.map((name: NameType) => ({
+            etymology:       name.etymology,
+            extendedMeaning: name.extendedMeaning,
+            famousPeople:    name.famousPeople,
+            geoLocation:     name.geoLocation,
+            id:              name.id,
+            meaning:         name.meaning,
+            media:           name.media,
+            morphology:      name.morphology,
+            name:            name.name,
+            variants:        name.variants,
+        }));
     }
 }
 

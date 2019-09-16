@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react-native";
 import { DataManagerType, ItemType, NameType } from "../dataManager/data";
 import DataManager, { getAlphabetsArray } from "../dataManager/dataManager";
 
@@ -53,6 +54,19 @@ export function getSearchStringProps(searchText: string): SearchProps {
 }
 
 export async function getSearchResult(searchKey: string, searchText: string): Promise<any> {
-    const searchableData: DataManagerType = await DataManager.getData(`@name/${searchKey}`) as ItemType;
-    return searchableData.name.filter((data: NameType) => data.name.includes(searchText));
+    let searchResult: NameType[] | [] = [];
+
+    try {
+        const searchableData: DataManagerType = await DataManager.getData(`@name/${searchKey}`) as ItemType;
+        searchResult = searchableData.name.filter((data: NameType) => data.name.includes(searchText));
+    } catch (e) {
+        Sentry.configureScope(scope => {
+            Sentry.captureMessage("getting name list from async storage failed");
+            scope.setExtra("searchKey", searchKey);
+            scope.setExtra("searchText", searchText);
+            Sentry.captureException(e);
+        });
+        searchResult = [];
+    }
+    return searchResult;
 }
