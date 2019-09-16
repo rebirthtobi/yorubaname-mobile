@@ -4,7 +4,7 @@ import React from "react";
 
 Sentry.init({
     dsn:         "https://012bedbbaa964ec2939d7eafdb31e962@sentry.io/1725949",
-    environment: "local",
+    environment: "production",
     release:     "0.5,",
 });
 

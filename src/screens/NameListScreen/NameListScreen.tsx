@@ -1,6 +1,6 @@
+import * as Sentry from "@sentry/react-native";
 import { autobind } from "core-decorators";
 import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
-import * as Sentry from "@sentry/react-native";
 import {
     FlatList, StyleSheet, Text, View,
 } from "react-native";
@@ -12,7 +12,7 @@ import EmptyState from "../../components/EmptyState/EmptyState";
 import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import LoadingState from "../../components/LoadingState/LoadingState";
-import React, { Component, ReactElement } from "react";
+import React, { PureComponent, ReactElement } from "react";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
@@ -57,7 +57,7 @@ interface NameListState {
     data: NameType[];
 }
 
-class NameListScreen extends Component<NavigationScreenProps, NameListState> {
+class NameListScreen extends PureComponent<NavigationScreenProps, NameListState> {
     state: NameListState = {
         data:      [],
         isLoading: true,
