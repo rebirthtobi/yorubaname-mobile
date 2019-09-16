@@ -65,15 +65,11 @@ export default class DataManager {
         let isFetchingError: boolean = false;
 
         try {
-            Sentry.captureMessage("start api getting of names", Sentry.Severity.Info);
+            Sentry.captureMessage("Initialization of app started", Sentry.Severity.Info);
             const names: NameType[] = await DataManager.getAllNames();
-            Sentry.captureMessage("Getting of name from api done", Sentry.Severity.Info);
-            Sentry.captureMessage("Storing of names in data store started", Sentry.Severity.Info);
             await DataManager.storeAllNames(names);
-            Sentry.captureMessage("Storing of names in data store done", Sentry.Severity.Info);
-            Sentry.captureMessage("Storing the initialization of app flag in storage started", Sentry.Severity.Info);
             await DataManager.storeData("@app", JSON.stringify({ isInitialised: true }));
-            Sentry.captureMessage("Storing the initialization of app flag in storage done", Sentry.Severity.Info);
+            Sentry.captureMessage("Initialization of app done", Sentry.Severity.Info);
             isFetchingError = true;
         } catch (e) {
             Sentry.captureMessage("Initialization of app failed", Sentry.Severity.Fatal);
@@ -105,7 +101,7 @@ export default class DataManager {
             level:    Sentry.Severity.Info,
             message:  "Storing of names inside async storage",
         });
-        Sentry.captureMessage("Storing of name inside async storage stated", Sentry.Severity.Info);
+        Sentry.captureMessage("Storing of name inside async storage started", Sentry.Severity.Info);
         return Promise.all(
             names.map((name, index) => DataManager.storeData(`@name/${alphabets[index]}`,
                 JSON.stringify({ name })))
@@ -121,20 +117,14 @@ export default class DataManager {
         let isFetchingError: boolean = false;
 
         try {
-            Sentry.captureMessage("resetting app initialization state", Sentry.Severity.Info);
+            Sentry.captureMessage("updating of names started", Sentry.Severity.Info);
             await DataManager.storeData("@app", JSON.stringify({ isInitialised: false }));
-            Sentry.captureMessage("start api getting of names", Sentry.Severity.Info);
             const names: NameType[] = await DataManager.getAllNames();
-            Sentry.captureMessage("Getting of name from api done", Sentry.Severity.Info);
             const namesKeys = getAlphabetsArray().map(alphabet => `@name/${alphabet}`);
-            Sentry.captureMessage("Removing already stored names", Sentry.Severity.Info);
             await DataManager.removeMultipleData(namesKeys);
-            Sentry.captureMessage("Storing of names in data store started", Sentry.Severity.Info);
             await DataManager.storeAllNames(names);
-            Sentry.captureMessage("Storing of names in data store done", Sentry.Severity.Info);
-            Sentry.captureMessage("Storing the initialization of app flag in storage started", Sentry.Severity.Info);
             await DataManager.storeData("@app", JSON.stringify({ isInitialised: true }));
-            Sentry.captureMessage("marking initialization done", Sentry.Severity.Info);
+            Sentry.captureMessage("updating of name done", Sentry.Severity.Info);
             isFetchingError = true;
         } catch (e) {
             Sentry.captureMessage("Updating of name database failed", Sentry.Severity.Fatal);
