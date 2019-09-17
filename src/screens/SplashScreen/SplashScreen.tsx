@@ -48,7 +48,7 @@ export default class SplashScreen extends Component<NavigationScreenProps, Splas
             navigation.navigate(Routes.AppStack);
         } else {
             const isFetchingError = await DataManager.initialiseApp();
-            if (isFetchingError) {
+            if (!isFetchingError) {
                 Toast.show(getTranslatedText("Names database failed to initialized, You can try again in the settings menu"), {
                     animation:   true,
                     duration:    Toast.durations.LONG,
