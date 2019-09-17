@@ -1,5 +1,4 @@
 /* tslint:disable:jsx-no-lambda */
-/* eslint-disable max-len */
 
 import { autobind } from "core-decorators";
 import {
@@ -9,11 +8,28 @@ import {
 import { NameType } from "../../lib/dataManager/data";
 import { NavigationScreenProps } from "react-navigation";
 import Colours from "../../lib/colours/colours";
+import Icon from "react-native-vector-icons/Feather";
 import NameSection from "../../components/NameSection/NameSection";
 import React, { Component } from "react";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
+    headerContainer: {
+        alignItems:        "center",
+        backgroundColor:   Colours.PrimaryColour,
+        flexDirection:     "row",
+        height:            56,
+        paddingHorizontal: 16,
+        paddingVertical:   4,
+    },
+    headerIcon: { marginRight: "auto" },
+    headerText: {
+        color:      Colours.SecondaryColour,
+        flex:       1,
+        fontSize:   20,
+        fontWeight: "bold",
+        textAlign:  "center",
+    },
     nameContainer: {
         alignItems:    "center",
         flexDirection: "row",
@@ -53,6 +69,18 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
 
         return (
             <ScrollView>
+                <View style={styles.headerContainer}>
+                    <Icon
+                        name={"arrow-left"}
+                        color={Colours.SecondaryColour}
+                        size={40}
+                        style={styles.headerIcon}
+                        onPress={this._goBack}
+                    />
+                    <Text style={styles.headerText}>
+                        {name}
+                    </Text>
+                </View>
                 <View style={styles.nameContainer}>
                     <Text style={styles.nameSingle}>{name.charAt(firstAlphabetIndex)}</Text>
                     <Text style={styles.nameStyle}>{name}</Text>
@@ -67,6 +95,12 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
                 {media && <NameSection title={"Media Links"} content={media} onPress={() => this._handleLinkClick(media)}/>}
             </ScrollView>
         );
+    }
+
+    @autobind
+    private _goBack(): void {
+        const { navigation } = this.props;
+        navigation.goBack();
     }
 
     @autobind

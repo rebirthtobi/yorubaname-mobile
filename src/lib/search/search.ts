@@ -1,4 +1,3 @@
-import * as Sentry from "@sentry/react-native";
 import { DataManagerType, ItemType, NameType } from "../dataManager/data";
 import DataManager, { getAlphabetsArray } from "../dataManager/dataManager";
 
@@ -58,15 +57,16 @@ export async function getSearchResult(searchKey: string, searchText: string): Pr
 
     try {
         const searchableData: DataManagerType = await DataManager.getData(`@name/${searchKey}`) as ItemType;
-        searchResult = searchableData.name.filter((data: NameType) => data.name.includes(searchText));
-    } catch (e) {
-        Sentry.configureScope(scope => {
-            Sentry.captureMessage("getting name list from async storage failed");
-            scope.setExtra("searchKey", searchKey);
-            scope.setExtra("searchText", searchText);
-            Sentry.captureException(e);
+        searchResult = searchableData.name.filter((data: NameType) => {
+            const isMatch = getNormalizedString(data.name).match(RegExp(getNormalizedString(searchText), "gi"));
+            return isMatch && isMatch.length;
         });
+    } catch (e) {
         searchResult = [];
     }
     return searchResult;
+}
+
+function getNormalizedString(sentence: string): string {
+    return sentence.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

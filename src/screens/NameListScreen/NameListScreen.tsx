@@ -1,4 +1,3 @@
-import * as Sentry from "@sentry/react-native";
 import { autobind } from "core-decorators";
 import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
 import {
@@ -125,11 +124,6 @@ class NameListScreen extends PureComponent<NavigationScreenProps, NameListState>
                 isLoading: false,
             });
         } catch (e) {
-            Sentry.configureScope(scope => {
-                Sentry.captureMessage("getting name list from async storage failed");
-                scope.setExtra("alphabet", alphabet);
-                Sentry.captureException(e);
-            });
             this.setState({
                 data:      [],
                 isLoading: false,
