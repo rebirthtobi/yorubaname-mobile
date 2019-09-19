@@ -118,7 +118,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _handleItemClick(item: SettingsDataType) {
+    private async _handleItemClick(item: SettingsDataType) {
         if (item.onPress) {
             Toast.show(getTranslatedText("Updating Name Database"), {
                 animation:   true,
@@ -127,7 +127,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                 position:    Toast.positions.BOTTOM,
                 shadow:      true,
             });
-            this._updateNames(item.onPress!);
+            await this._updateNames(item.onPress!);
         } else {
             const { navigation } = this.props;
             navigation.navigate(Routes.Credits);

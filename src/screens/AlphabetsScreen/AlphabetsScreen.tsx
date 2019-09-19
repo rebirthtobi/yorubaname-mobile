@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 const alphabetsArray = getAlphabetsArray();
 
-export default class AlphabetsScreen extends Component<NavigationScreenProps> {
+class AlphabetsScreen extends Component<NavigationScreenProps> {
     render() {
         return (
             <View>
@@ -49,8 +49,9 @@ export default class AlphabetsScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _getItemComponent({item}: { item: string }): ReactElement {
+    private _getItemComponent({ item }: { item: string }): ReactElement {
         return (
+            // tslint:disable-next-line:jsx-no-lambda
             <TouchableOpacity onPress={() => this._handleOnItemPress(item)} style={styles.alphabetWrapper}>
                 <View>
                     <Text style={styles.alphabetText}> {item} </Text>
@@ -91,3 +92,5 @@ export default class AlphabetsScreen extends Component<NavigationScreenProps> {
         return appInfo && appInfo.isInitialised;
     }
 }
+
+export default withSafeAreaView(AlphabetsScreen);

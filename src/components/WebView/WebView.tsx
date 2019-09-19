@@ -28,7 +28,7 @@ interface WebViewProps {
 }
 
 interface WebViewState {
-    isInternetActive: boolean;
+    isInternetActive: Promise<boolean> | boolean;
     isPageLoadError: boolean;
 }
 
@@ -67,7 +67,12 @@ export default class WebView extends Component<WebViewProps, WebViewState> {
         }
 
         if (!isInternetActive) {
-            return this._renderError(undefined, undefined, getTranslatedText("Your internet is not reachable. Connect to a working internet to continue"), "cloud-off");
+            return this._renderError(
+                undefined,
+                undefined,
+                getTranslatedText("Your internet is not reachable. Connect to a working internet to continue"),
+                "cloud-off"
+            );
         }
 
         return (
@@ -87,7 +92,9 @@ export default class WebView extends Component<WebViewProps, WebViewState> {
     }
 
     @autobind
-    private _renderError(errorDomain?: string, errorCode?: number, errorDesc?: string, errorIcon?: string): ReactElement {
+    private _renderError(
+        errorDomain?: string, errorCode?: number, errorDesc?: string, errorIcon?: string
+    ): ReactElement {
         return (
             <ErrorState
                 errorDomain={errorDomain}
@@ -113,9 +120,9 @@ export default class WebView extends Component<WebViewProps, WebViewState> {
     }
 
     @autobind
-    private _getInternetState(): boolean {
+    private async _getInternetState(): Promise<boolean> {
         let internetState: boolean = false;
-        NetInfo.fetch().then(state => {
+        await NetInfo.fetch().then(state => {
             internetState = !!state.isInternetReachable;
         });
 

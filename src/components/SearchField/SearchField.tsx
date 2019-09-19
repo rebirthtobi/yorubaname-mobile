@@ -17,13 +17,19 @@ interface SearchFieldProps {
     injectedStyles?: object;
     searchText: string;
     onChangeText(text: string): void;
+    onPress(): void;
 }
 
-const SearchField = ({ searchText, onChangeText, injectedStyles }: SearchFieldProps): ReactElement => (
+const SearchField = ({
+    searchText, onChangeText, injectedStyles, onPress,
+}: SearchFieldProps): ReactElement => (
     <TextInput
         value={searchText}
         style={[styles.searchField, injectedStyles]}
         onChangeText={onChangeText}
+        returnKeyType="search"
+        enablesReturnKeyAutomatically
+        onSubmitEditing={onPress}
     />
 );
 

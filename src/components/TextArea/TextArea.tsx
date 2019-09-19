@@ -42,6 +42,7 @@ export default function TextArea({
                 numberOfLines={4}
                 onChangeText={onChangeText}
                 style={[styles.textAreaStyle, !!value && styles.activeTextAreaStyle]}
+                enablesReturnKeyAutomatically
             />
         </View>
     );

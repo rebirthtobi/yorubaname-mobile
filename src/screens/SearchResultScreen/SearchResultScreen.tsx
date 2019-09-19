@@ -54,8 +54,8 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
         };
     }
 
-    componentDidMount(): void {
-        this._searchName();
+    async componentDidMount(): Promise<void> {
+        await this._searchName();
     }
 
     render() {
@@ -84,7 +84,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
-    private async _searchName(): Promise<void> {
+    private _searchName(): void {
         const { searchText } = this.state;
         const searchProps: SearchProps = getSearchStringProps(searchText);
         this.setState({ isSearching: true });
@@ -95,12 +95,24 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
                 isSearching:  false,
             });
         } else {
+            this._processResult(searchProps.searchKey, searchText);
+        }
+    }
+
+    @autobind
+    private _processResult(searchKey: string, searchText: string): void {
+        getSearchResult(searchKey, searchText).then(searchResult => {
             this.setState({
                 isSearchable: true,
                 isSearching:  false,
-                searchResult: await getSearchResult(searchProps.searchKey, searchText),
+                searchResult,
             });
-        }
+            // eslint-disable-next-line no-magic-numbers
+            if (searchResult.length === 1) {
+                const [name] = searchResult;
+                this._viewName(name);
+            }
+        });
     }
 
     @autobind
@@ -123,7 +135,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     private _getItemComponent({ item }: {item: NameType}): ReactElement {
         return (
             <TouchableOpacity
-                onPress={() => this._handleItemClick(item)}
+                onPress={() => this._viewName(item)}
                 activeOpacity={1}
             >
                 <View style={styles.listItemContainer}>
@@ -135,7 +147,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
-    private _handleItemClick(item: NameType): void {
+    private _viewName(item: NameType): void {
         const { navigation } = this.props;
         navigation.navigate(Routes.NameScreen, { item });
     }

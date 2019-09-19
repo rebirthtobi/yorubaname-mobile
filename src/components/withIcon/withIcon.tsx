@@ -41,7 +41,7 @@ export default function withIcon<P>(WrappedComponent: React.ComponentType<P & Wi
         const { isMaterialDesign, name, onPress } = props;
         return (
             <View style={[styles.containerStyle, isMaterialDesign && styles.material]}>
-                <WrappedComponent {...props} injectedStyles={styles.mainComponent}/>
+                <WrappedComponent {...props} injectedStyles={styles.mainComponent} onPress={onPress}/>
                 <Icon.Button
                     style={styles.icon}
                     name={name}

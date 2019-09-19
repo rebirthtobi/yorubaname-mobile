@@ -49,7 +49,9 @@ export default class FloatingLabelInput extends Component<FloatingTextFieldProps
     state = { isFocused: false };
 
     render() {
-        const { incomingStyle, onChangeText, textLabel, textInput } = this.props;
+        const {
+            incomingStyle, onChangeText, textLabel, textInput,
+        } = this.props;
         const isInputFocused = this._isFocused();
         const styles = getAnimatedStyle(isInputFocused);
 
@@ -65,6 +67,7 @@ export default class FloatingLabelInput extends Component<FloatingTextFieldProps
                     value={textInput}
                     onChangeText={onChangeText}
                     blurOnSubmit
+                    enablesReturnKeyAutomatically
                 />
             </View>
         );

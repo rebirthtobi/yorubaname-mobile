@@ -148,6 +148,7 @@ class NameListScreen extends PureComponent<NavigationScreenProps, NameListState>
 
     @autobind
     private _getItemComponent({ item }: {item: NameType}): ReactElement {
+        // tslint:disable-next-line:jsx-no-lambda
         return <Text style={styles.listItemStyle} onPress={() => this._handleItemClick(item)}> {item.name} </Text>;
     }
 
