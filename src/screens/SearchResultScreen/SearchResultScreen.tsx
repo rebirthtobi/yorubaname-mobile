@@ -15,6 +15,9 @@ import SearchField from "../../components/SearchField/SearchField";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
+    errorContainer:     { alignItems: "center" },
+    errorPressableText: { color: Colours.PrimaryColour },
+    errorText:          { fontSize: 20 },
     itemSeparatorStyle: {
         backgroundColor: Colours.PrimaryColour,
         height:          0.5,
@@ -122,12 +125,37 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
 
     @autobind
     private _getEmptyState(): ReactElement {
-        return <EmptyState description={getTranslatedText("Your search does not match any names")}/>;
+        const emptyComponent = (
+            <View style={styles.errorContainer}>
+                <Text style={styles.errorText}>Your Search did not match any name</Text>
+                <Text
+                    onPress={this._suggestSearchedName}
+                    style={[styles.errorText, styles.errorPressableText]}
+                >
+                    Click here to request for this name
+                </Text>
+            </View>
+        );
+
+        return (
+            <EmptyState
+                description={getTranslatedText("Your search does not match any names")}
+                emptyComponent={emptyComponent}
+            />
+        );
     }
 
     @autobind
     private _getItemSeparator(): ReactElement {
         return <View style={styles.itemSeparatorStyle}/>;
+    }
+
+    @autobind
+    private _suggestSearchedName(): void {
+        const { navigation } = this.props;
+        const { searchText } = this.state;
+
+        navigation.navigate(Routes.SubmitName, { name: searchText });
     }
 
     @autobind

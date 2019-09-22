@@ -15,7 +15,12 @@ const styles = StyleSheet.create({
     },
 });
 
-function EmptyState({ description }: {description: string}): ReactElement {
+interface EmptyStateProps {
+    description: string;
+    emptyComponent?: React.ReactElement;
+}
+
+function EmptyState({ description, emptyComponent }: EmptyStateProps): ReactElement {
     return (
         <View style={styles.containerStyle}>
             <Icon
@@ -23,7 +28,7 @@ function EmptyState({ description }: {description: string}): ReactElement {
                 size={150}
                 color={Colours.GreyColour}
             />
-            <Text style={styles.descriptionStyle}> {description} </Text>
+            {emptyComponent ? emptyComponent : <Text style={styles.descriptionStyle}> {description} </Text>}
         </View>
     );
 }

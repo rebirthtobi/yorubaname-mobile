@@ -72,12 +72,17 @@ function isEmailValid(field: string): boolean {
 }
 
 class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState> {
-    state = {
-        details:   "",
-        email:     "",
-        locations: [],
-        name:      "",
-    };
+    constructor(props: NavigationScreenProps) {
+        super(props);
+
+        const { navigation } = this.props;
+        this.state = {
+            details:   "",
+            email:     "",
+            locations: [],
+            name:      navigation.getParam("name"),
+        };
+    }
 
     render() {
         const { details, email, name } = this.state;
