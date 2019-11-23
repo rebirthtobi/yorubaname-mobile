@@ -1,4 +1,5 @@
 import { autobind } from "core-decorators";
+import { fontFamily } from "../../lib/styles/styles";
 import {
     Linking, ScrollView, StyleSheet, Text,
 } from "react-native";
@@ -13,6 +14,8 @@ import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView
 const styles = StyleSheet.create({
     creditTextStyle: {
         color:     Colours.GreyColour,
+        fontFamily,
+        fontSize:  16,
         margin:    16,
         textAlign: "center",
     },

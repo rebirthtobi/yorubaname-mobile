@@ -1,4 +1,5 @@
 import { autobind } from "core-decorators";
+import { fontFamily } from "../../lib/styles/styles";
 import {
     StyleSheet, Text, TextInput, View, ViewStyle,
 } from "react-native";
@@ -21,12 +22,14 @@ const getAnimatedStyle = (isFocused: boolean) => StyleSheet.create({
         borderBottomColor: isFocused ? Colours.PrimaryColour : Colours.GreyColour,
         borderBottomWidth: 1,
         color:             Colours.GreyColour,
+        fontFamily,
         fontSize:          20,
         height:            50,
     },
     textInputFocus: { borderBottomColor: Colours.PrimaryColour },
     textLabelStyle: {
         color:    isFocused ?  Colours.GreyColour : Colours.PrimaryColour,
+        fontFamily,
         fontSize: isFocused ? focusedAFontSize : unFocusedFontSize,
         left:     isFocused ? focusedPadding : unFocusedPadding,
         position: "absolute",

@@ -1,4 +1,5 @@
 import { autobind } from "core-decorators";
+import { fontFamily } from "../../lib/styles/styles";
 import { NavigationScreenProps } from "react-navigation";
 import {
     StyleSheet, Text, TouchableOpacity, View,
@@ -23,10 +24,14 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color:      Colours.SecondaryColour,
+        fontFamily,
         fontSize:   20,
         fontWeight: "bold",
     },
-    commonStyle:   { marginBottom: 16 },
+    commonStyle: {
+        fontFamily,
+        marginBottom: 16,
+    },
     formContainer: {
         flex:              1,
         marginBottom:      24,
@@ -43,6 +48,7 @@ const styles = StyleSheet.create({
     headerText: {
         color:      Colours.PrimaryColour,
         flex:       1,
+        fontFamily,
         fontSize:   20,
         fontWeight: "bold",
         textAlign:  "center",

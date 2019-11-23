@@ -3,6 +3,7 @@ import {
     FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
+import {fontFamily} from "../../lib/styles/styles";
 import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
 import DataManager from "../../lib/dataManager/dataManager";
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
     },
     listItemStyle: {
         color:    Colours.GreyColour,
+        fontFamily,
         fontSize: 20,
     },
 });
@@ -36,7 +38,7 @@ interface SettingsDataType {
     icon: string;
     name: string;
     onPress?: () => Promise<boolean>;
-    route?: string;
+    route: string;
 }
 
 const data: SettingsDataType[] = [
@@ -45,6 +47,7 @@ const data: SettingsDataType[] = [
         id:      1,
         name:    "Update Database",
         onPress: DataManager.refreshNamesDb,
+        route:   Routes.About,
     },
     {
         icon:  "triangle",
@@ -130,7 +133,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
             await this._updateNames(item.onPress!);
         } else {
             const { navigation } = this.props;
-            navigation.navigate(Routes.Credits);
+            navigation.navigate(item.route);
         }
     }
 
