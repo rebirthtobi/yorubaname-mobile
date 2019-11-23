@@ -1,5 +1,4 @@
 /* tslint:disable  */
-import { Platform } from "react-native";
 import React, { Component } from "react";
 import Tts from "react-native-tts";
 

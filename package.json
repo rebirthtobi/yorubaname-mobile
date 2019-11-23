@@ -10,7 +10,8 @@
     "test:coverage": "jest --coverage -u && cat ./coverage/lcov.info | codacy-coverage",
     "lint": "concurrently --kill-others-on-fail 'yarn run lint:es' 'yarn run lint:ts'",
     "lint:es": "eslint .",
-    "lint:ts": "tslint -c tslint.json --project tsconfig.json"
+    "lint:ts": "tslint -c tslint.json --project tsconfig.json",
+    "fix:js": "eslint --fix ."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",

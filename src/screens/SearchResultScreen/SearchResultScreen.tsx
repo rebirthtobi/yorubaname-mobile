@@ -57,7 +57,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
         };
     }
 
-    async componentDidMount(): Promise<void> {
+    async componentDidMount() {
         await this._searchName();
     }
 
@@ -87,7 +87,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
-    private _searchName(): void {
+    private async _searchName() {
         const { searchText } = this.state;
         const searchProps: SearchProps = getSearchStringProps(searchText);
         this.setState({ isSearching: true });
@@ -98,24 +98,23 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
                 isSearching:  false,
             });
         } else {
-            this._processResult(searchProps.searchKey, searchText);
+            await this._processResult(searchProps.searchKey, searchText);
         }
     }
 
     @autobind
-    private _processResult(searchKey: string, searchText: string): void {
-        getSearchResult(searchKey, searchText).then(searchResult => {
-            this.setState({
-                isSearchable: true,
-                isSearching:  false,
-                searchResult,
-            });
-            // eslint-disable-next-line no-magic-numbers
-            if (searchResult.length === 1) {
-                const [name] = searchResult;
-                this._viewName(name);
-            }
+    private async _processResult(searchKey: string, searchText: string) {
+        const searchResult = await getSearchResult(searchKey, searchText);
+        this.setState({
+            isSearchable: true,
+            isSearching:  false,
+            searchResult,
         });
+        // eslint-disable-next-line no-magic-numbers
+        if (searchResult.length === 1) {
+            const [name] = searchResult;
+            this._viewName(name);
+        }
     }
 
     @autobind
