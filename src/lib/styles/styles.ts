@@ -21,16 +21,16 @@ export const appearance = {
         ...Platform.select({
             android: {
                 backgroundColor: Colours.GreyColour,
-                elevation:       1,
+                elevation:       2,
             },
             ios: {
                 shadowColor:  Colours.GreyColour,
                 shadowOffset: {
-                    height: 2,
+                    height: 1,
                     width:  0,
                 },
-                shadowOpacity: 0.25,
-                shadowRadius:  2,
+                shadowOpacity: 0.5,
+                shadowRadius:  3,
             },
         }),
     },
