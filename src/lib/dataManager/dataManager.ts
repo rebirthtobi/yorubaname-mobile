@@ -1,18 +1,7 @@
 import { DataManagerType, NameType } from "./data";
+import { getAlphabetsArray } from "../alphabet/alphabet";
 import ApiManager from "../apiManager/apiManager";
 import AsyncStorage from "@react-native-community/async-storage";
-
-const alphabet = "abdefghijklmnoprstuwy";
-
-export function getAlphabetsArray(): string[] {
-    const alphabetArray = alphabet.split("");
-    alphabetArray.splice(4, 0, "ẹ");
-    alphabetArray.splice(7, 0, "gb");
-    alphabetArray.splice(16, 0, "ọ");
-    alphabetArray.splice(20, 0, "ṣ");
-
-    return alphabetArray;
-}
 
 export default class DataManager {
     static async storeData(key: string, data: string): Promise<void> {

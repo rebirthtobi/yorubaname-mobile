@@ -113,7 +113,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                     <Icon
                         name={item.icon}
                         size={20}
-                        color={Colours.GreyColour}
+                        color={Colours.PrimaryColour}
                     />
                 </View>
             </TouchableOpacity>
