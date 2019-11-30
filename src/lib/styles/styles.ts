@@ -7,6 +7,23 @@ export const fontFamily: string = Platform.select({
 });
 
 export const appearance = {
+    bottomShadow: {
+        ...Platform.select({
+            android: {
+                backgroundColor: Colours.PrimaryColour,
+                elevation:       4,
+            },
+            ios: {
+                shadowColor:  Colours.PrimaryColour,
+                shadowOffset: {
+                    height: 3,
+                    width:  0,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius:  1,
+            },
+        }),
+    },
     bottomTabContainer: {
         borderTopWidth:  0,
         paddingVertical: 8,
