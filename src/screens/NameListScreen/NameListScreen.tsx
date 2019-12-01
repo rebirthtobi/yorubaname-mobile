@@ -1,4 +1,4 @@
-import { appearance } from "../../lib/styles/styles";
+import { appearance, fontFamily } from "../../lib/styles/styles";
 import { autobind } from "core-decorators";
 import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
 import {
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     },
     name: {
         color:    Colours.GreyColour,
+        fontFamily,
         fontSize: 20,
     },
     nameWrapper:           { flex: 1 },

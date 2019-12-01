@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js  */
 
+import { appearance, fontFamily } from "../../lib/styles/styles";
 import { autobind } from "core-decorators";
 import {
     Linking,
@@ -7,11 +8,8 @@ import {
 } from "react-native";
 import { NameType } from "../../lib/dataManager/data";
 import { NavigationScreenProps } from "react-navigation";
-import { TtsContext, withTextToSpeech } from "../../components/TextToSpeech/TextToSpeech";
-import { TtsContextProps } from "../../components/TextToSpeech/TtsTypes";
 import Colours from "../../lib/colours/colours";
 import Icon from "react-native-vector-icons/Feather";
-import LoadingState from "../../components/LoadingState/LoadingState";
 import NameSection from "../../components/NameSection/NameSection";
 import React, { Component } from "react";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
@@ -24,31 +22,20 @@ const styles = StyleSheet.create({
         height:            56,
         paddingHorizontal: 16,
         paddingVertical:   4,
+        ...appearance.bottomShadow,
     },
-    headerIconLeft:  { marginRight: "auto" },
-    headerIconRight: { marginLeft: "auto" },
-    headerText:      {
+    headerIconLeft: { marginRight: "auto" },
+    headerText:     {
         color:      Colours.SecondaryColour,
         flex:       1,
+        fontFamily,
         fontSize:   20,
         fontWeight: "bold",
         textAlign:  "center",
     },
-    nameContainer: {
-        alignItems:    "center",
-        flexDirection: "row",
-    },
-    nameSingle: {
-        backgroundColor: Colours.PrimaryColour,
-        color:           Colours.SecondaryColour,
-        fontSize:        70,
-        textAlign:       "center",
-        width:           "30%",
-    },
-    nameStyle: {
-        color:             Colours.GreyColour,
-        fontSize:          18,
-        paddingHorizontal: 8,
+    wrapper: {
+        paddingHorizontal: 16,
+        paddingVertical:   8,
     },
 });
 
@@ -69,50 +56,34 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
             name,
             variants,
         } = this._getNameObject();
-        const firstAlphabetIndex = 0;
 
         return (
-            <TtsContext.Consumer>
-                {(context: TtsContextProps | null) => !context || !context.hasChecked
-                    ? <LoadingState />
-                    : (
-                        <ScrollView>
-                            <View style={styles.headerContainer}>
-                                <Icon
-                                    name={"arrow-left"}
-                                    color={Colours.SecondaryColour}
-                                    size={40}
-                                    style={styles.headerIconLeft}
-                                    onPress={this._goBack}
-                                />
-                                <Text style={styles.headerText}>
-                                    {name}
-                                </Text>
-                                {context.isTtsSupported && <Icon
-                                    name={"volume-2"}
-                                    color={Colours.SecondaryColour}
-                                    size={40}
-                                    style={styles.headerIconRight}
-                                    onPress={context.speak(name)}
-                                />}
-                            </View>
-                            <View style={styles.nameContainer}>
-                                <Text style={styles.nameSingle}>{name.charAt(firstAlphabetIndex)}</Text>
-                                <Text style={styles.nameStyle}>{name}</Text>
-                            </View>
-                            {meaning && <NameSection title={`Meaning of ${name}`} content={meaning}/>}
-                            {extendedMeaning && <NameSection title={"Extended Meaning"} content={extendedMeaning}/>}
-                            {morphology && <NameSection title={"Morphology"} content={morphology}/>}
-                            {!!etymology.length && <NameSection title={"Gloss"} content={etymology}/>}
-                            {!!geoLocation.length && <NameSection title={"Common in;"} content={geoLocation}/>}
-                            {famousPeople && <NameSection title={"Famous People"} content={famousPeople}/>}
-                            {variants && <NameSection title={"Variants"} content={variants}/>}
-                            {media &&
-                            <NameSection title={"Media Links"} content={media} onPress={this._handleLinkClick(media)}/>}
-                        </ScrollView>
-                    )
-                }
-            </TtsContext.Consumer>
+            <View>
+                <View style={styles.headerContainer}>
+                    <Icon
+                        name={"arrow-left"}
+                        color={Colours.SecondaryColour}
+                        size={40}
+                        style={styles.headerIconLeft}
+                        onPress={this._goBack}
+                    />
+                    <Text style={styles.headerText}>
+                        {name}
+                    </Text>
+                </View>
+                <ScrollView style={styles.wrapper}>
+                    {meaning && <NameSection title={`Meaning of ${name}`} content={meaning}/>}
+                    {extendedMeaning && <NameSection title={"Extended Meaning"} content={extendedMeaning}/>}
+                    {morphology && <NameSection title={"Morphology"} content={morphology}/>}
+                    {!!etymology.length && <NameSection title={"Gloss"} content={etymology}/>}
+                    {!!geoLocation.length && <NameSection title={"Common in;"} content={geoLocation}/>}
+                    {famousPeople && <NameSection title={"Famous People"} content={famousPeople}/>}
+                    {variants && <NameSection title={"Variants"} content={variants}/>}
+                    { media
+                    && <NameSection title={"Media Links"} content={media} onPress={this._handleLinkClick(media)}/>
+                    }
+                </ScrollView>
+            </View>
         );
     }
 
@@ -145,4 +116,4 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
     }
 }
 
-export default withTextToSpeech(withSafeAreaView(NameScreen));
+export default withSafeAreaView(NameScreen);
