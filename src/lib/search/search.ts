@@ -52,7 +52,7 @@ export function getSearchStringProps(searchText: string): SearchProps {
     };
 }
 
-export async function getSearchResult(searchKey: string, searchText: string): Promise<any> {
+export async function getSearchResult(searchKey: string, searchText: string): Promise<NameType[] | [] > {
     let searchResult: NameType[] | [] = [];
 
     try {

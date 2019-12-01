@@ -1,7 +1,8 @@
+import { appearance, fontFamily } from "../../lib/styles/styles";
 import { autobind } from "core-decorators";
 import { DataManagerType, ItemType, NameType } from "../../lib/dataManager/data";
 import {
-    FlatList, StyleSheet, Text, View,
+    FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 import { Routes } from "../../navigation/constants";
@@ -14,7 +15,24 @@ import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { PureComponent, ReactElement } from "react";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
+const radius = 24;
+
 const styles = StyleSheet.create({
+    avatarText: {
+        color:      Colours.GreyColour,
+        fontSize:   20,
+        fontWeight: "600",
+    },
+    avatarWrapper: {
+        alignItems:      "center",
+        backgroundColor: Colours.SecondaryColour,
+        borderColor:     Colours.GreyColour,
+        borderRadius:    radius,
+        borderWidth:     2,
+        height:          radius * 2,
+        justifyContent:  "center",
+        width:           radius * 2,
+    },
     headerContainer: {
         alignItems:        "center",
         backgroundColor:   Colours.PrimaryColour,
@@ -22,6 +40,7 @@ const styles = StyleSheet.create({
         height:            56,
         paddingHorizontal: 16,
         paddingVertical:   4,
+        ...appearance.bottomShadow,
     },
     headerIcon: { marginRight: "auto" },
     headerText: {
@@ -31,17 +50,21 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign:  "center",
     },
-    itemSeparatorStyle: {
-        backgroundColor: Colours.PrimaryColour,
-        height:          0.5,
+    item: {
+        alignItems:        "center",
+        backgroundColor:   Colours.SecondaryColour,
+        borderBottomColor: Colours.MutedColour,
+        borderBottomWidth: 1,
+        flexDirection:     "row",
+        justifyContent:    "space-between",
+        padding:           16,
     },
-    listItemStyle: {
-        color:             Colours.GreyColour,
-        fontSize:          18,
-        minHeight:         50,
-        paddingHorizontal: 16,
-        paddingVertical:   8,
+    name: {
+        color:    Colours.GreyColour,
+        fontFamily,
+        fontSize: 20,
     },
+    nameWrapper:           { flex: 1 },
     sectionContainerStyle: { height: "100%" },
     sectionHeaderStyle:    {
         backgroundColor:   Colours.MutedColour,
@@ -49,6 +72,7 @@ const styles = StyleSheet.create({
         fontSize:          24,
         paddingHorizontal: 8,
     },
+    wrapper: { backgroundColor: Colours.GreyColour },
 });
 
 interface NameListState {
@@ -76,7 +100,7 @@ class NameListScreen extends PureComponent<NavigationScreenProps, NameListState>
         }
 
         return (
-            <View>
+            <View style={styles.wrapper}>
                 <View style={styles.headerContainer}>
                     <Icon
                         name={"arrow-left"}
@@ -91,7 +115,6 @@ class NameListScreen extends PureComponent<NavigationScreenProps, NameListState>
                 </View>
                 <FlatList
                     data={data}
-                    ItemSeparatorComponent={this._getItemSeparator}
                     renderItem={this._getItemComponent}
                     keyExtractor={this._getItemKey}
                     ListEmptyComponent={this._getEmptyState}
@@ -142,13 +165,23 @@ class NameListScreen extends PureComponent<NavigationScreenProps, NameListState>
     }
 
     @autobind
-    private _getItemSeparator(): ReactElement {
-        return <View style={styles.itemSeparatorStyle}/>;
-    }
-
-    @autobind
     private _getItemComponent({ item }: {item: NameType}): ReactElement {
-        return <Text style={styles.listItemStyle} onPress={() => this._handleItemClick(item)}> {item.name} </Text>;
+        const onClick = () => this._handleItemClick(item);
+        const zeroIndex = 0;
+        const substringLength = 2;
+
+        return (
+            <TouchableOpacity activeOpacity={0.9} onPress={onClick}>
+                <View style={styles.item}>
+                    <View style={styles.avatarWrapper}>
+                        <Text style={styles.avatarText}>{item.name.substring(zeroIndex, substringLength)}</Text>
+                    </View>
+                    <View style={styles.nameWrapper}>
+                        <Text style={styles.name}> {item.name} </Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+        );
     }
 
     @autobind

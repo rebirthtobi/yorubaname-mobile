@@ -1,37 +1,37 @@
 import { EtymologyType, GeoLocationType } from "../../lib/dataManager/data";
+import { fontFamily } from "../../lib/styles/styles";
 import { StyleSheet, Text, View } from "react-native";
 import Colours from "../../lib/colours/colours";
 import React, { ReactElement } from "react";
 
 const styles = StyleSheet.create({
+    container:      { marginBottom: 24 },
     contentMeaning: {
         color:             Colours.GreyColour,
-        fontSize:          20,
+        fontSize:          16,
         paddingVertical:   4,
         textAlign:         "right",
         textAlignVertical: "center",
     },
     contentStyle: {
         color:             Colours.GreyColour,
-        fontSize:          20,
-        paddingHorizontal: 16,
-        paddingVertical:   4,
+        fontFamily,
+        fontSize:          16,
+        paddingLeft:       16,
         textAlignVertical: "center",
     },
     contentWrapper: {
-        alignItems:        "center",
-        flexDirection:     "row",
-        justifyContent:    "space-between",
-        paddingHorizontal: 16,
+        alignItems:     "center",
+        flexDirection:  "row",
+        justifyContent: "space-between",
     },
     noPadding:  { paddingHorizontal: 0 },
     titleStyle: {
-        backgroundColor:   Colours.PrimaryColour,
-        color:             Colours.SecondaryColour,
-        fontSize:          16,
-        paddingHorizontal: 16,
-        paddingVertical:   8,
-        textAlign:         "right",
+        color:             Colours.GreyColour,
+        fontFamily,
+        fontSize:          20,
+        fontWeight:        "bold",
+        marginBottom:      8,
         textAlignVertical: "center",
     },
 });
@@ -81,7 +81,7 @@ function getContent(content: ContentType, onPress?: () => Promise<void>): ReactE
 
 export default function NameSection({ title, content, onPress }: NameSectionType): ReactElement {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.titleStyle}>
                 {title}
             </Text>

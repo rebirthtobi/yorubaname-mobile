@@ -24,8 +24,14 @@ describe("Testing getting of localized text", () => {
         expect(getTranslatedText("There are no {names} submitted yet", undefined)).toBe("");
         expect(getTranslatedText("There are no {names} submitted yet", {})).toBe("");
         expect(getTranslatedText("There are no {names} submitted yet", "")).toBe("");
-        expect(getTranslatedText("There are no {names} submitted yet", { cow: "cow", names: "Tobi" })).toBe("There are no Tobi submitted yet");
+        expect(getTranslatedText(
+            "There are no {names} submitted yet",
+            { cow: "cow", names: "Tobi" }),
+        ).toBe("There are no Tobi submitted yet");
         expect(getTranslatedText("There are no {names} submitted yet", { cow: "cow" })).toBe("");
-        expect(getTranslatedText("There are no {} submitted yet", { cow: "cow" })).toBe("There are no {} submitted yet");
+        expect(getTranslatedText(
+            "There are no {} submitted yet",
+            { cow: "cow" }),
+        ).toBe("There are no {} submitted yet");
     });
 });

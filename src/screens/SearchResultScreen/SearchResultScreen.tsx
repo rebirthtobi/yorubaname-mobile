@@ -15,6 +15,9 @@ import SearchField from "../../components/SearchField/SearchField";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
+    errorContainer:     { alignItems: "center" },
+    errorPressableText: { color: Colours.PrimaryColour },
+    errorText:          { fontSize: 20 },
     itemSeparatorStyle: {
         backgroundColor: Colours.PrimaryColour,
         height:          0.5,
@@ -54,8 +57,8 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
         };
     }
 
-    componentDidMount(): void {
-        this._searchName();
+    async componentDidMount() {
+        await this._searchName();
     }
 
     render() {
@@ -84,7 +87,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
-    private async _searchName(): Promise<void> {
+    private async _searchName() {
         const { searchText } = this.state;
         const searchProps: SearchProps = getSearchStringProps(searchText);
         this.setState({ isSearching: true });
@@ -95,11 +98,22 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
                 isSearching:  false,
             });
         } else {
-            this.setState({
-                isSearchable: true,
-                isSearching:  false,
-                searchResult: await getSearchResult(searchProps.searchKey, searchText),
-            });
+            await this._processResult(searchProps.searchKey, searchText);
+        }
+    }
+
+    @autobind
+    private async _processResult(searchKey: string, searchText: string) {
+        const searchResult = await getSearchResult(searchKey, searchText);
+        this.setState({
+            isSearchable: true,
+            isSearching:  false,
+            searchResult,
+        });
+        // eslint-disable-next-line no-magic-numbers
+        if (searchResult.length === 1) {
+            const [name] = searchResult;
+            this._viewName(name);
         }
     }
 
@@ -110,7 +124,24 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
 
     @autobind
     private _getEmptyState(): ReactElement {
-        return <EmptyState description={getTranslatedText("Your search does not match any names")}/>;
+        const emptyComponent = (
+            <View style={styles.errorContainer}>
+                <Text style={styles.errorText}>Your Search did not match any name</Text>
+                <Text
+                    onPress={this._suggestSearchedName}
+                    style={[styles.errorText, styles.errorPressableText]}
+                >
+                    Click here to request for this name
+                </Text>
+            </View>
+        );
+
+        return (
+            <EmptyState
+                description={getTranslatedText("Your search does not match any names")}
+                emptyComponent={emptyComponent}
+            />
+        );
     }
 
     @autobind
@@ -119,11 +150,19 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
+    private _suggestSearchedName(): void {
+        const { navigation } = this.props;
+        const { searchText } = this.state;
+
+        navigation.navigate(Routes.SubmitName, { name: searchText });
+    }
+
+    @autobind
     /* tslint:disable:jsx-no-lambda */
     private _getItemComponent({ item }: {item: NameType}): ReactElement {
         return (
             <TouchableOpacity
-                onPress={() => this._handleItemClick(item)}
+                onPress={() => this._viewName(item)}
                 activeOpacity={1}
             >
                 <View style={styles.listItemContainer}>
@@ -135,7 +174,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 
     @autobind
-    private _handleItemClick(item: NameType): void {
+    private _viewName(item: NameType): void {
         const { navigation } = this.props;
         navigation.navigate(Routes.NameScreen, { item });
     }

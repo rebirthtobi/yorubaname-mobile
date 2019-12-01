@@ -5,7 +5,7 @@ import React from "react";
 
 const styles = StyleSheet.create({ mainView: { flex: 1 } });
 
-export default function withBottomNavigation<P>(WrappedComponent: React.ComponentType<NavigationScreenProps>) {
+export default function withBottomNavigation(WrappedComponent: React.ComponentType<NavigationScreenProps>) {
     function withBottomNavigation(props: NavigationScreenProps) {
         const { navigation } = props;
         return (

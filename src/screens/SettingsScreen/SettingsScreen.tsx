@@ -3,6 +3,7 @@ import {
     FlatList, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
+import {fontFamily} from "../../lib/styles/styles";
 import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
 import DataManager from "../../lib/dataManager/dataManager";
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
     },
     listItemStyle: {
         color:    Colours.GreyColour,
+        fontFamily,
         fontSize: 20,
     },
 });
@@ -36,7 +38,7 @@ interface SettingsDataType {
     icon: string;
     name: string;
     onPress?: () => Promise<boolean>;
-    route?: string;
+    route: string;
 }
 
 const data: SettingsDataType[] = [
@@ -45,6 +47,7 @@ const data: SettingsDataType[] = [
         id:      1,
         name:    "Update Database",
         onPress: DataManager.refreshNamesDb,
+        route:   Routes.About,
     },
     {
         icon:  "triangle",
@@ -110,7 +113,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                     <Icon
                         name={item.icon}
                         size={20}
-                        color={Colours.GreyColour}
+                        color={Colours.PrimaryColour}
                     />
                 </View>
             </TouchableOpacity>
@@ -118,7 +121,7 @@ class SettingsScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _handleItemClick(item: SettingsDataType) {
+    private async _handleItemClick(item: SettingsDataType) {
         if (item.onPress) {
             Toast.show(getTranslatedText("Updating Name Database"), {
                 animation:   true,
@@ -127,10 +130,10 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                 position:    Toast.positions.BOTTOM,
                 shadow:      true,
             });
-            this._updateNames(item.onPress!);
+            await this._updateNames(item.onPress!);
         } else {
             const { navigation } = this.props;
-            navigation.navigate(Routes.Credits);
+            navigation.navigate(item.route);
         }
     }
 

@@ -1,4 +1,5 @@
-export default {
+/* eslint max-len: [0]*/
+const appStrings = {
     "About":                                                                        "About",
     "All fields are required and must be valid":                                    "All fields are required and must be valid",
     "Credits":                                                                      "Credits",
@@ -21,8 +22,10 @@ export default {
     "Updating of Name Database Fail":                                               "Updating of Name Database Fail",
     "Updating of Name Database Successful":                                         "Updating of Name Database Successful",
     "Volunteer":                                                                    "Volunteer",
-    "welcome":                                                                      "welcome",
+    "Welcome":                                                                      "Welcome",
     "Where did you hear or were given the name:":                                   "Where did you hear or were given the name:",
     "Your internet is not reachable. Connect to a working internet to continue":    "Your internet is not reachable. Connect to a working internet to continue",
     "Your search does not match any names":                                         "Your search does not match any names",
 };
+
+export default appStrings;

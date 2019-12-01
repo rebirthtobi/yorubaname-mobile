@@ -34,6 +34,8 @@ target 'yorubaname' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
+  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
   target 'yorubanameTests' do
     inherit! :search_paths
     # Pods for testing

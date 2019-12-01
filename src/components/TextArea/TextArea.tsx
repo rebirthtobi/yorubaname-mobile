@@ -1,3 +1,4 @@
+import { fontFamily } from "../../lib/styles/styles";
 import {
     StyleSheet, Text, TextInput, View, ViewStyle,
 } from "react-native";
@@ -8,15 +9,19 @@ const styles = StyleSheet.create({
     activeTextAreaStyle: { borderColor: Colours.PrimaryColour },
     labelStyle:          {
         color:        Colours.GreyColour,
+        fontFamily,
         fontSize:     14,
         marginBottom: 8,
     },
     textAreaStyle: {
         borderColor:       Colours.GreyColour,
+        borderRadius:      2,
         borderWidth:       1,
         color:             Colours.GreyColour,
+        fontFamily,
         fontSize:          16,
         height:            150,
+        padding:           8,
         textAlignVertical: "top",
     },
 });
@@ -42,6 +47,7 @@ export default function TextArea({
                 numberOfLines={4}
                 onChangeText={onChangeText}
                 style={[styles.textAreaStyle, !!value && styles.activeTextAreaStyle]}
+                enablesReturnKeyAutomatically
             />
         </View>
     );

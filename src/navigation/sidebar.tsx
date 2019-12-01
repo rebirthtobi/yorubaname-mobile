@@ -1,6 +1,7 @@
 /* tslint:disable:jsx-no-lambda */
 import { autobind } from "core-decorators";
 import { DrawerItemsProps, SafeAreaView } from "react-navigation";
+import { fontFamily } from "../lib/styles/styles";
 import { Routes } from "./constants";
 import {
     ScrollView, StyleSheet, Text, View,
@@ -18,7 +19,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         width:             "100%",
     },
-    closeButton:   { justifyContent: "flex-end" },
+    closeButton: {
+        alignSelf:         "flex-end",
+        paddingHorizontal: 16,
+        paddingVertical:   8,
+    },
     container:     { flex: 1 },
     menuContainer: {
         height:            "100%",
@@ -26,7 +31,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
     },
     menuText: {
-        color:    Colours.PrimaryColour,
+        color:    Colours.GreyColour,
+        fontFamily,
         fontSize: 20,
     },
     scrollViewStyle: { height: "100%" },
@@ -83,13 +89,15 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                         >
                             <Text style={styles.menuText}>{getTranslatedText("Settings")}</Text>
                         </Icon.Button>
-                        <Icon.Button
-                            name={"x"}
-                            size={30}
-                            color={Colours.PrimaryColour}
-                            style={{ ...styles.button, ...styles.closeButton }}
-                            onPress={this._handleCloseDrawer}
-                        />
+                        <View style={styles.button}>
+                            <Icon
+                                name={"x"}
+                                size={30}
+                                color={Colours.PrimaryColour}
+                                style={styles.closeButton}
+                                onPress={this._handleCloseDrawer}
+                            />
+                        </View>
                     </View>
                 </SafeAreaView>
             </ScrollView>

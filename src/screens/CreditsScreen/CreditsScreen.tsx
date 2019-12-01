@@ -1,4 +1,5 @@
 import { autobind } from "core-decorators";
+import { fontFamily } from "../../lib/styles/styles";
 import {
     Linking, ScrollView, StyleSheet, Text,
 } from "react-native";
@@ -13,6 +14,8 @@ import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView
 const styles = StyleSheet.create({
     creditTextStyle: {
         color:     Colours.GreyColour,
+        fontFamily,
+        fontSize:  16,
         margin:    16,
         textAlign: "center",
     },
@@ -43,11 +46,11 @@ class CreditsScreen extends Component<NavigationScreenProps> {
     }
 
     @autobind
-    private _handleNameLink(): void {
-        Linking.canOpenURL(Urls.LinkedIn).then(
-            isSupported => {
+    private async _handleNameLink(): Promise<void> {
+        await Linking.canOpenURL(Urls.LinkedIn).then(
+            async isSupported => {
                 if (isSupported) {
-                    Linking.openURL(Urls.LinkedIn);
+                    await Linking.openURL(Urls.LinkedIn);
                 }
             }
         );

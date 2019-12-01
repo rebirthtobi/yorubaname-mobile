@@ -1,3 +1,4 @@
+import { appearance } from "../lib/styles/styles";
 import {
     createAppContainer,
     createBottomTabNavigator,
@@ -6,6 +7,7 @@ import {
     TabBarIconProps,
 } from "react-navigation";
 import { Routes, TabIcons } from "./constants";
+import { ViewStyle } from "react-native";
 import AboutScreen from "../screens/AboutScreen/AboutScreen";
 import AlphabetsScreen from "../screens/AlphabetsScreen/AlphabetsScreen";
 import BlogScreen from "../screens/BlogScreen/BlogScreen";
@@ -27,7 +29,7 @@ import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
 const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactElement<any> => {
     const { tintColor } = iconProps;
     const iconName: string = (TabIcons as any)[routeName];
-    return <Icon name={iconName} color={tintColor || Colours.PrimaryColour} size={25}/>;
+    return <Icon name={iconName} color={tintColor || Colours.PrimaryColour} size={30} style={{ height: 34 }} />;
 };
 
 const SettingsNavigation = createDrawerNavigator({
@@ -62,12 +64,12 @@ const TabMenuNavigation = createBottomTabNavigator({
     tabBarOptions:    {
         activeBackgroundColor:   Colours.SecondaryColour,
         activeTintColor:         Colours.PrimaryColour,
-        inactiveBackgroundColor: Colours.PrimaryColour,
-        inactiveTintColor:       Colours.SecondaryColour,
+        inactiveBackgroundColor: Colours.SecondaryColour,
+        inactiveTintColor:       Colours.MutedColour,
         keyboardHidesTabBar:     true,
-        labelStyle:              { fontSize: 12 },
+        labelStyle:              appearance.bottomTabLabel as ViewStyle,
         showIcon:                true,
-        style:                   { borderTopWidth: 0 },
+        style:                   Object.assign(appearance.topShadow, appearance.bottomTabContainer),
     },
 });
 
