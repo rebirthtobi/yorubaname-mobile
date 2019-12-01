@@ -19,103 +19,103 @@ export function getAlphabetWithProps(): AlphabetProps[] {
     return [
         {
             alphabet: "a",
-            examples: ["ade", "ade"],
+            examples: ["Alátiṣe", "Akínfọlájù"],
         },
         {
             alphabet: "b",
-            examples: ["ade", "ade"],
+            examples: ["Babátọ́lá", "Bándélé"],
         },
         {
             alphabet: "d",
-            examples: ["ade", "ade"],
+            examples: ["Dásọfúnjó", "Déṣíkù"],
         },
         {
             alphabet: "e",
-            examples: ["ade", "ade"],
+            examples: ["Efunche", "Ejiyọóyè"],
         },
         {
             alphabet: "ẹ",
-            examples: ["ade", "ade"],
+            examples: ["Ẹ̀ríìfẹ́olúwa", "Ẹ̀rùòbodò"],
         },
         {
             alphabet: "f",
-            examples: ["ade", "ade"],
+            examples: ["Fámúyìdé", "Fásẹwà"],
         },
         {
             alphabet: "g",
-            examples: ["ade", "ade"],
+            examples: ["Gẹ́gẹ́lẹ̀ṣọ́", "Gígalolúwa"],
         },
         {
             alphabet: "gb",
-            examples: ["ade", "ade"],
+            examples: ["Gbélékalẹ̀", "Gbénlé"],
         },
         {
             alphabet: "h",
-            examples: ["ade", "ade"],
+            examples: ["Hárúnà"],
         },
         {
             alphabet: "i",
-            examples: ["ade", "ade"],
+            examples: ["Ìgbẹ́kọ̀yí", "Ifáwuyi"],
         },
         {
             alphabet: "j",
-            examples: ["ade", "ade"],
+            examples: ["Jẹ́miníwà", "Jésùtósin"],
         },
         {
             alphabet: "k",
-            examples: ["ade", "ade"],
+            examples: ["Kẹ́yìndé", "Kòkúmọ́"],
         },
         {
             alphabet: "l",
-            examples: ["ade", "ade"],
+            examples: ["Lárìnàká", "Làtífù"],
         },
         {
             alphabet: "m",
-            examples: ["ade", "ade"],
+            examples: ["Mofolúṣọ́", "Mọ́láwá"],
         },
         {
             alphabet: "n",
-            examples: ["ade", "ade"],
+            examples: ["Nínálowó", "Níyọ̀ọlá"],
         },
         {
             alphabet: "o",
-            examples: ["ade", "ade"],
+            examples: ["Oyèlẹ́yẹ", "Olúbánkẹ́"],
         },
         {
             alphabet: "ọ",
-            examples: ["ade", "ade"],
+            examples: ["Ọdérìndé", "Ọmọ́kórè"],
         },
         {
             alphabet: "p",
-            examples: ["ade", "ade"],
+            examples: ["Pèmísíre", "Pétérù"],
         },
         {
             alphabet: "r",
-            examples: ["ade", "ade"],
+            examples: ["Rìnmáyọ̀", "Rọ́láyọ̀"],
         },
         {
             alphabet: "s",
-            examples: ["ade", "ade"],
+            examples: ["Shórúngbé", "Sinmilólúwa"],
         },
         {
             alphabet: "ṣ",
-            examples: ["ade", "ade"],
+            examples: ["Ṣhódípẹ̀", "Ṣọ́balójú"],
         },
         {
             alphabet: "t",
-            examples: ["ade", "ade"],
+            examples: ["Tòkèdé", "Tolúwalògo"],
         },
         {
             alphabet: "u",
-            examples: ["ade", "ade"],
+            examples: ["Ugbódín"],
         },
         {
             alphabet: "w",
-            examples: ["ade", "ade"],
+            examples: ["Wáwòyí", "Wòmílójú"],
         },
         {
             alphabet: "y",
-            examples: ["ade", "ade"],
+            examples: ["Yèyélúfẹ̀", "Yíwọlá"],
         },
     ];
 }

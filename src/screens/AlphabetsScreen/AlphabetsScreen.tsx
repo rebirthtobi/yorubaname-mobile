@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     alphabetWrapper: {
         backgroundColor:  Colours.SecondaryColour,
-        borderRadius:     5,
+        borderRadius:     2,
         flexDirection:    "row",
         marginHorizontal: 16,
         marginVertical:   8,
