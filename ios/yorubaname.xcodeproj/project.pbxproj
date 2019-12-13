@@ -12,14 +12,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		17DDCECF4AF477D160DE2285 /* libPods-yorubaname-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D39F6CE75EE6802633D1956 /* libPods-yorubaname-tvOS.a */; };
+		1C5B145AFAB62DAB817B7306 /* libPods-yorubanameTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7D0EC9740B9CF3B5B902F5 /* libPods-yorubanameTests.a */; };
+		2C849BED463BBD44D86D4F8A /* libPods-yorubaname.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F66DA2993A5463E31173C6EB /* libPods-yorubaname.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* yorubanameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* yorubanameTests.m */; };
-		2DDB92FC088BAEE69122BB08 /* libPods-yorubaname-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A835A25D736936DDDC049235 /* libPods-yorubaname-tvOSTests.a */; };
-		804071030A030D0A7FFE9E9B /* libPods-yorubanameTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5588EB6BE12EB4B845ADF4AE /* libPods-yorubanameTests.a */; };
-		80631B048B2C146178217095 /* libPods-yorubaname.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7087D6835413C47D5B26B2D5 /* libPods-yorubaname.a */; };
+		2F6346FC896A14DF5495D5B1 /* libPods-yorubaname-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7720960DDF572823F4122 /* libPods-yorubaname-tvOSTests.a */; };
+		4BF40AAB4F13FDA3268EA791 /* libPods-yorubaname-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E891016136EEB72E4453F8 /* libPods-yorubaname-tvOS.a */; };
 		880B48FF1BFD4B539B03FE47 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2CA96ED62D4EB19D91D1CD /* libz.tbd */; };
 /* End PBXBuildFile section */
 
@@ -45,10 +45,9 @@
 		00E356EE1AD99517003FC87E /* yorubanameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yorubanameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* yorubanameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yorubanameTests.m; sourceTree = "<group>"; };
-		063C99C4176BF01654530B49 /* Pods-yorubanameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubanameTests.release.xcconfig"; path = "Target Support Files/Pods-yorubanameTests/Pods-yorubanameTests.release.xcconfig"; sourceTree = "<group>"; };
+		0385292C0CC6FF41A2B8CFA2 /* Pods-yorubaname-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOSTests/Pods-yorubaname-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		066947C279F44202A81BFDD9 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		10160A9F1D59443189F74A75 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		135A2E51B07C391095FAD398 /* Pods-yorubaname.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname/Pods-yorubaname.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* yorubaname.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yorubaname.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = yorubaname/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = yorubaname/AppDelegate.m; sourceTree = "<group>"; };
@@ -56,8 +55,9 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = yorubaname/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = yorubaname/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yorubaname/main.m; sourceTree = "<group>"; };
+		19E891016136EEB72E4453F8 /* libPods-yorubaname-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E6C21278D6EB7D206195301 /* Pods-yorubaname.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname/Pods-yorubaname.debug.xcconfig"; sourceTree = "<group>"; };
 		1F0661B391544577B9DEF7B5 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		2239A2CB8EC159534A9D0549 /* Pods-yorubanameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubanameTests.debug.xcconfig"; path = "Target Support Files/Pods-yorubanameTests/Pods-yorubanameTests.debug.xcconfig"; sourceTree = "<group>"; };
 		27860A470BD5477DBCD2C019 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* yorubaname-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yorubaname-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* yorubaname-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "yorubaname-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,38 +66,38 @@
 		381BAC62BDB94965AA238252 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		4588A4B64C024EFBA06B95D7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		45A3890786CB4876A7FAAB6E /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		4DA5A81A6F7DD73DA15E1710 /* Pods-yorubanameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubanameTests.debug.xcconfig"; path = "Target Support Files/Pods-yorubanameTests/Pods-yorubanameTests.debug.xcconfig"; sourceTree = "<group>"; };
 		53C5B2537E61402CB256599F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		5588EB6BE12EB4B845ADF4AE /* libPods-yorubanameTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubanameTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		562DADEE6D684FEEAD805905 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		5BDD86789D211EE6CBC071E7 /* Pods-yorubaname.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname.release.xcconfig"; path = "Target Support Files/Pods-yorubaname/Pods-yorubaname.release.xcconfig"; sourceTree = "<group>"; };
 		5C54C1AC98474D35BCF770C4 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		5FFB6D6709EC4FC4A41EE0CC /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		7087D6835413C47D5B26B2D5 /* libPods-yorubaname.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7484027422E849CA9B584DCA /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		78913BD36F8E43EAB9EF32E9 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		85008D1A60DC67CF10A64D39 /* Pods-yorubaname-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOSTests/Pods-yorubaname-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		81D7720960DDF572823F4122 /* libPods-yorubaname-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2548B9D6FE42858E50F213 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		8F68165BD8C24E56A94EE459 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		97DBEE3335B0037CE959B195 /* Pods-yorubaname-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOS/Pods-yorubaname-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		95F7BD6CD3CF54F07A9D8870 /* Pods-yorubaname-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOSTests/Pods-yorubaname-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9641B5168B261BC52E3C112A /* Pods-yorubanameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubanameTests.release.xcconfig"; path = "Target Support Files/Pods-yorubanameTests/Pods-yorubanameTests.release.xcconfig"; sourceTree = "<group>"; };
 		99FF7AF4AE7E46C58041306E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		9D39F6CE75EE6802633D1956 /* libPods-yorubaname-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5F0D13C861463BA01F60BC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		A1B02DF5E4234697A85FE51A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		A2CA5E5D36C746399D941240 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A7EC584F48A94A8AAA87872C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		A835A25D736936DDDC049235 /* libPods-yorubaname-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4CA4BDC47E496FB67BD2C7 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		AED1FF4CE96FD76708324F11 /* Pods-yorubaname.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname.release.xcconfig"; path = "Target Support Files/Pods-yorubaname/Pods-yorubaname.release.xcconfig"; sourceTree = "<group>"; };
+		B22EB53ED5BC40A094B535BC /* Pods-yorubaname-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOS.release.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOS/Pods-yorubaname-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		BE616B191FCC4C5B87F2A150 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		C0E6D0026D99441EB30D4092 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		C33228047DFE44049D974831 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		C83FABC206A21CC2D09C52F9 /* Pods-yorubaname-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOSTests/Pods-yorubaname-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA2C78452310416090FB0575 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		DE66C01A15B3E762C76B7D38 /* Pods-yorubaname-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOS.release.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOS/Pods-yorubaname-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		DC7D0EC9740B9CF3B5B902F5 /* libPods-yorubanameTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubanameTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD898B736763A75BAC07E040 /* Pods-yorubaname-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yorubaname-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-yorubaname-tvOS/Pods-yorubaname-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E31DC2031E88425B9632B6E5 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		EC620E6290954671AC739A47 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EE2CA96ED62D4EB19D91D1CD /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F66DA2993A5463E31173C6EB /* libPods-yorubaname.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yorubaname.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E3022077CF42F1B8B2735A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		FB6044AE7E4C401AA84A56FA /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				804071030A030D0A7FFE9E9B /* libPods-yorubanameTests.a in Frameworks */,
+				1C5B145AFAB62DAB817B7306 /* libPods-yorubanameTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80631B048B2C146178217095 /* libPods-yorubaname.a in Frameworks */,
 				880B48FF1BFD4B539B03FE47 /* libz.tbd in Frameworks */,
+				2C849BED463BBD44D86D4F8A /* libPods-yorubaname.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17DDCECF4AF477D160DE2285 /* libPods-yorubaname-tvOS.a in Frameworks */,
+				4BF40AAB4F13FDA3268EA791 /* libPods-yorubaname-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DDB92FC088BAEE69122BB08 /* libPods-yorubaname-tvOSTests.a in Frameworks */,
+				2F6346FC896A14DF5495D5B1 /* libPods-yorubaname-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,11 +175,11 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				7087D6835413C47D5B26B2D5 /* libPods-yorubaname.a */,
-				9D39F6CE75EE6802633D1956 /* libPods-yorubaname-tvOS.a */,
-				A835A25D736936DDDC049235 /* libPods-yorubaname-tvOSTests.a */,
-				5588EB6BE12EB4B845ADF4AE /* libPods-yorubanameTests.a */,
 				EE2CA96ED62D4EB19D91D1CD /* libz.tbd */,
+				F66DA2993A5463E31173C6EB /* libPods-yorubaname.a */,
+				19E891016136EEB72E4453F8 /* libPods-yorubaname-tvOS.a */,
+				81D7720960DDF572823F4122 /* libPods-yorubaname-tvOSTests.a */,
+				DC7D0EC9740B9CF3B5B902F5 /* libPods-yorubanameTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,14 +221,14 @@
 		D371813593C27FDB7D9FA8BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				135A2E51B07C391095FAD398 /* Pods-yorubaname.debug.xcconfig */,
-				5BDD86789D211EE6CBC071E7 /* Pods-yorubaname.release.xcconfig */,
-				97DBEE3335B0037CE959B195 /* Pods-yorubaname-tvOS.debug.xcconfig */,
-				DE66C01A15B3E762C76B7D38 /* Pods-yorubaname-tvOS.release.xcconfig */,
-				C83FABC206A21CC2D09C52F9 /* Pods-yorubaname-tvOSTests.debug.xcconfig */,
-				85008D1A60DC67CF10A64D39 /* Pods-yorubaname-tvOSTests.release.xcconfig */,
-				2239A2CB8EC159534A9D0549 /* Pods-yorubanameTests.debug.xcconfig */,
-				063C99C4176BF01654530B49 /* Pods-yorubanameTests.release.xcconfig */,
+				1E6C21278D6EB7D206195301 /* Pods-yorubaname.debug.xcconfig */,
+				AED1FF4CE96FD76708324F11 /* Pods-yorubaname.release.xcconfig */,
+				DD898B736763A75BAC07E040 /* Pods-yorubaname-tvOS.debug.xcconfig */,
+				B22EB53ED5BC40A094B535BC /* Pods-yorubaname-tvOS.release.xcconfig */,
+				95F7BD6CD3CF54F07A9D8870 /* Pods-yorubaname-tvOSTests.debug.xcconfig */,
+				0385292C0CC6FF41A2B8CFA2 /* Pods-yorubaname-tvOSTests.release.xcconfig */,
+				4DA5A81A6F7DD73DA15E1710 /* Pods-yorubanameTests.debug.xcconfig */,
+				9641B5168B261BC52E3C112A /* Pods-yorubanameTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "yorubanameTests" */;
 			buildPhases = (
-				8C0C86CD2FF5B0951F0549D8 /* [CP] Check Pods Manifest.lock */,
+				687ECA53619090B461466761 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -297,13 +297,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "yorubaname" */;
 			buildPhases = (
-				C692C0DC2D77BD627DDDBE12 /* [CP] Check Pods Manifest.lock */,
+				7709882AC793992A80F05178 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				9572873ECA0E080172C73EE5 /* [CP] Copy Pods Resources */,
+				EBAAA7265DA56475EF3804D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,7 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "yorubaname-tvOS" */;
 			buildPhases = (
-				5FFEAB2D5D472331197EEA49 /* [CP] Check Pods Manifest.lock */,
+				3B065812E3A79AFFFD41AA09 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -338,7 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "yorubaname-tvOSTests" */;
 			buildPhases = (
-				A1F95F23F032D00EC463219E /* [CP] Check Pods Manifest.lock */,
+				32DD41D13919062B6124C6DE /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -365,6 +365,10 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = ZWYRKAL8SJ;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -462,7 +466,29 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		5FFEAB2D5D472331197EEA49 /* [CP] Check Pods Manifest.lock */ = {
+		32DD41D13919062B6124C6DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-yorubaname-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B065812E3A79AFFFD41AA09 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -484,7 +510,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C0C86CD2FF5B0951F0549D8 /* [CP] Check Pods Manifest.lock */ = {
+		687ECA53619090B461466761 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +532,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9572873ECA0E080172C73EE5 /* [CP] Copy Pods Resources */ = {
+		7709882AC793992A80F05178 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-yorubaname-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBAAA7265DA56475EF3804D8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -552,50 +600,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yorubaname/Pods-yorubaname-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A1F95F23F032D00EC463219E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-yorubaname-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C692C0DC2D77BD627DDDBE12 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-yorubaname-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -703,7 +707,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2239A2CB8EC159534A9D0549 /* Pods-yorubanameTests.debug.xcconfig */;
+			baseConfigurationReference = 4DA5A81A6F7DD73DA15E1710 /* Pods-yorubanameTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -726,7 +730,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 063C99C4176BF01654530B49 /* Pods-yorubanameTests.release.xcconfig */;
+			baseConfigurationReference = 9641B5168B261BC52E3C112A /* Pods-yorubanameTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -746,11 +750,14 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135A2E51B07C391095FAD398 /* Pods-yorubaname.debug.xcconfig */;
+			baseConfigurationReference = 1E6C21278D6EB7D206195301 /* Pods-yorubaname.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ttobi4@gmail.com (UV4LQC63GG)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = ZWYRKAL8SJ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -817,23 +824,31 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-webview\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.renact.yorubaname;
 				PRODUCT_NAME = yorubaname;
+				PROVISIONING_PROFILE_SPECIFIER = "Yoruba Name Development";
+				TARGETED_DEVICE_FAMILY = 1;
+				"TEST_HOST[sdk=iphonesimulator*]" = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BDD86789D211EE6CBC071E7 /* Pods-yorubaname.release.xcconfig */;
+			baseConfigurationReference = AED1FF4CE96FD76708324F11 /* Pods-yorubaname.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tobi Taiwo (ZWYRKAL8SJ)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZWYRKAL8SJ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -900,20 +915,24 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-webview\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.renact.yorubaname;
 				PRODUCT_NAME = yorubaname;
+				PROVISIONING_PROFILE_SPECIFIER = "Yoruba Name Distribution";
+				TARGETED_DEVICE_FAMILY = 1;
+				"TEST_HOST[sdk=iphonesimulator*]" = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97DBEE3335B0037CE959B195 /* Pods-yorubaname-tvOS.debug.xcconfig */;
+			baseConfigurationReference = DD898B736763A75BAC07E040 /* Pods-yorubaname-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -941,7 +960,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE66C01A15B3E762C76B7D38 /* Pods-yorubaname-tvOS.release.xcconfig */;
+			baseConfigurationReference = B22EB53ED5BC40A094B535BC /* Pods-yorubaname-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -969,7 +988,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C83FABC206A21CC2D09C52F9 /* Pods-yorubaname-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 95F7BD6CD3CF54F07A9D8870 /* Pods-yorubaname-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -996,7 +1015,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85008D1A60DC67CF10A64D39 /* Pods-yorubaname-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 0385292C0CC6FF41A2B8CFA2 /* Pods-yorubaname-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1067,7 +1086,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1113,7 +1132,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

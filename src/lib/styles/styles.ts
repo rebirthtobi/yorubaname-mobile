@@ -9,11 +9,8 @@ export const fontFamily: string = Platform.select({
 export const appearance = {
     bottomShadow: {
         ...Platform.select({
-            android: {
-                backgroundColor: Colours.PrimaryColour,
-                elevation:       4,
-            },
-            ios: {
+            android: { elevation: 4 },
+            ios:     {
                 shadowColor:  Colours.PrimaryColour,
                 shadowOffset: {
                     height: 3,
@@ -26,6 +23,7 @@ export const appearance = {
     },
     bottomTabContainer: {
         borderTopWidth:  0,
+        height:          60,
         paddingVertical: 8,
     },
     bottomTabLabel: {
@@ -36,11 +34,8 @@ export const appearance = {
     },
     shadow: {
         ...Platform.select({
-            android: {
-                backgroundColor: Colours.GreyColour,
-                elevation:       2,
-            },
-            ios: {
+            android: { elevation: 4 },
+            ios:     {
                 shadowColor:  Colours.GreyColour,
                 shadowOffset: {
                     height: 1,
@@ -53,11 +48,8 @@ export const appearance = {
     },
     topShadow: {
         ...Platform.select({
-            android: {
-                backgroundColor: Colours.GreyColour,
-                elevation:       4,
-            },
-            ios: {
+            android: { elevation: 4 },
+            ios:     {
                 shadowColor:  Colours.GreyColour,
                 shadowOffset: {
                     height: -3,

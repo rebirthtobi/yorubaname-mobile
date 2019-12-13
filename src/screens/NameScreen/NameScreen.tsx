@@ -72,15 +72,16 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
                     </Text>
                 </View>
                 <ScrollView style={styles.wrapper}>
-                    {meaning && <NameSection title={`Meaning of ${name}`} content={meaning}/>}
-                    {extendedMeaning && <NameSection title={"Extended Meaning"} content={extendedMeaning}/>}
-                    {morphology && <NameSection title={"Morphology"} content={morphology}/>}
-                    {!!etymology.length && <NameSection title={"Gloss"} content={etymology}/>}
-                    {!!geoLocation.length && <NameSection title={"Common in;"} content={geoLocation}/>}
-                    {famousPeople && <NameSection title={"Famous People"} content={famousPeople}/>}
-                    {variants && <NameSection title={"Variants"} content={variants}/>}
+                    {meaning ? <NameSection title={`Meaning of ${name}`} content={meaning}/> : null}
+                    {extendedMeaning ? <NameSection title={"Extended Meaning"} content={extendedMeaning}/> : null}
+                    {morphology ? <NameSection title={"Morphology"} content={morphology}/> : null}
+                    {!!etymology.length ? <NameSection title={"Gloss"} content={etymology}/> : null}
+                    {!!geoLocation.length ? <NameSection title={"Common in;"} content={geoLocation}/> : null}
+                    {famousPeople ? <NameSection title={"Famous People"} content={famousPeople}/> : null}
+                    {variants ? <NameSection title={"Variants"} content={variants}/> : null}
                     { media
-                    && <NameSection title={"Media Links"} content={media} onPress={this._handleLinkClick(media)}/>
+                        ? <NameSection title={"Media Links"} content={media} onPress={this._handleLinkClick(media)}/>
+                        : null
                     }
                 </ScrollView>
             </View>

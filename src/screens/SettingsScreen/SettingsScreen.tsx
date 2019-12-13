@@ -1,9 +1,10 @@
 import { autobind } from "core-decorators";
 import {
-    FlatList, StyleSheet, Text, TouchableOpacity, View,
+    FlatList, Linking, StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
+import {isError} from "tslint/lib/error";
+import { fontFamily } from "../../lib/styles/styles";
 import { NavigationScreenProps } from "react-navigation";
-import {fontFamily} from "../../lib/styles/styles";
 import { Routes } from "../../navigation/constants";
 import Colours from "../../lib/colours/colours";
 import DataManager from "../../lib/dataManager/dataManager";
@@ -11,6 +12,7 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import React, { Component, ReactElement } from "react";
 import Toast from "react-native-root-toast";
+import Urls from "../../lib/urls/urls";
 import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
@@ -36,9 +38,11 @@ const styles = StyleSheet.create({
 interface SettingsDataType {
     id: number;
     icon: string;
+    isExternalLink?: boolean;
     name: string;
     onPress?: () => Promise<boolean>;
-    route: string;
+    route?: string;
+    url?: string;
 }
 
 const data: SettingsDataType[] = [
@@ -50,28 +54,45 @@ const data: SettingsDataType[] = [
         route:   Routes.About,
     },
     {
-        icon:  "triangle",
-        id:    2,
-        name:  "About",
-        route: Routes.About,
+        icon:           "triangle",
+        id:             2,
+        isExternalLink: true,
+        name:           "About",
+        url:            Urls.About,
     },
     {
-        icon:  "gift",
-        id:    3,
-        name:  "Donate",
-        route: Routes.Donate,
+        icon:           "gift",
+        id:             3,
+        isExternalLink: true,
+        name:           "Donate",
+        url:            Urls.Donate,
     },
     {
-        icon:  "minimize",
-        id:    4,
-        name:  "Volunteer",
-        route: Routes.Volunteer,
+        icon:           "minimize",
+        id:             4,
+        isExternalLink: true,
+        name:           "Volunteer",
+        url:            Urls.Volunteer,
+    },
+    {
+        icon:           "edit-3",
+        id:             5,
+        isExternalLink: true,
+        name:           "Blog",
+        url:            Urls.Blog,
     },
     {
         icon:  "award",
-        id:    5,
+        id:    6,
         name:  "Credits",
         route: Routes.Credits,
+    },
+    {
+        icon:           "shield",
+        id:             7,
+        isExternalLink: true,
+        name:           "Privacy Policy",
+        url:            Urls.PrivacyPolicy,
     },
 ];
 
@@ -131,7 +152,15 @@ class SettingsScreen extends Component<NavigationScreenProps> {
                 shadow:      true,
             });
             await this._updateNames(item.onPress!);
-        } else {
+        } else if (item.isExternalLink && item.url) {
+            await Linking.canOpenURL(item.url).then(
+                async isSupported => {
+                    if (isSupported) {
+                        await Linking.openURL(item.url!);
+                    }
+                }
+            );
+        } else if (item.route) {
             const { navigation } = this.props;
             navigation.navigate(item.route);
         }

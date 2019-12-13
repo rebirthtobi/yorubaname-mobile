@@ -1,4 +1,4 @@
-package com.yorubaname;
+package com.renact.yorubaname;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

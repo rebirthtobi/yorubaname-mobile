@@ -12,6 +12,7 @@ import getTranslatedText from "../../lib/localization/getTranslatedText";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import React, { Component, ReactElement } from "react";
 import SearchField from "../../components/SearchField/SearchField";
+import withBottomNavigation from "../../components/withBottomNavigation/withBottomNavigation";
 import withSafeAreaView from "../../components/withSafeAreaView/withSafeAreaView";
 
 const styles = StyleSheet.create({
@@ -74,9 +75,12 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
                     name="search"
                     isMaterialDesign
                 />
-                {isSearching && <LoadingState />}
-                {!isSearching && !isSearchable && <EmptyState description={"Your search does not match any names"}/>}
-                {!isSearching && isSearchable && this._renderSearchResults(searchResult)}
+                {isSearching ? <LoadingState />  : null}
+                {(!isSearching && !isSearchable)
+                    ? <EmptyState description={"Your search does not match any names"}/>
+                    : null
+                }
+                {(!isSearching && isSearchable) ? this._renderSearchResults(searchResult)  : null}
             </View>
         );
     }
@@ -193,4 +197,4 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
     }
 }
 
-export default withSafeAreaView(SearchResultScreen);
+export default withSafeAreaView(withBottomNavigation(SearchResultScreen));

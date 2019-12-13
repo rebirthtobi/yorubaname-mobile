@@ -2,6 +2,7 @@ import { autobind } from "core-decorators";
 import { StyleSheet, Text, View } from "react-native";
 import Colours from "../../lib/colours/colours";
 import Icon from "react-native-vector-icons/Feather";
+import NameSection from "../NameSection/NameSection";
 import React, { Component, ReactElement } from "react";
 
 const styles = StyleSheet.create({
@@ -55,7 +56,10 @@ export default class ErrorState extends Component<ErrorStateProps> {
         return (
             <View style={styles.containerStyle}>
                 {this._renderErrorImage(errorCode, errorIcon)}
-                {errorDomain && <Text style={styles.errorDomainStyle}> {errorDomain} </Text>}
+                { errorDomain
+                    ? <Text style={styles.errorDomainStyle}> {errorDomain} </Text>
+                    : null
+                }
                 <Text style={styles.errorDescStyle}> {errorDesc} </Text>
                 {children}
             </View>
