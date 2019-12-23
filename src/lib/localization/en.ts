@@ -2,6 +2,7 @@
 const appStrings = {
     "About":                                                                        "About",
     "All fields are required and must be valid":                                    "All fields are required and must be valid",
+    "Blog":                                                                         "Blog",
     "Credits":                                                                      "Credits",
     "Details":                                                                      "Details",
     "Donate":                                                                       "Donate",

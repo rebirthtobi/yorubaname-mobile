@@ -2,14 +2,16 @@
 import { autobind } from "core-decorators";
 import { DrawerItemsProps, SafeAreaView } from "react-navigation";
 import { fontFamily } from "../lib/styles/styles";
-import { Routes } from "./constants";
 import {
+    Linking,
     ScrollView, StyleSheet, Text, View,
 } from "react-native";
+import { Routes } from "./constants";
 import Colours from "../lib/colours/colours";
 import getTranslatedText from "../lib/localization/getTranslatedText";
 import Icon from "react-native-vector-icons/Feather";
 import React, { Component } from "react";
+import Urls from "../lib/urls/urls";
 
 const styles = StyleSheet.create({
     button: {
@@ -49,7 +51,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             size={20}
                             color={Colours.PrimaryColour}
                             style={styles.button}
-                            onPress={() => this._handleNavigation(Routes.About)}
+                            onPress={() => this._handleLink(Urls.About)}
                         >
                             <Text style={styles.menuText}>{getTranslatedText("About")}</Text>
                         </Icon.Button>
@@ -58,7 +60,7 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             size={20}
                             color={Colours.PrimaryColour}
                             style={styles.button}
-                            onPress={() => this._handleNavigation(Routes.Donate)}
+                            onPress={() => this._handleLink(Urls.Donate)}
                         >
                             <Text style={styles.menuText}>{getTranslatedText("Donate")}</Text>
                         </Icon.Button>
@@ -67,9 +69,18 @@ export default class Sidebar extends Component<DrawerItemsProps> {
                             size={20}
                             color={Colours.PrimaryColour}
                             style={styles.button}
-                            onPress={() => this._handleNavigation(Routes.Volunteer)}
+                            onPress={() => this._handleLink(Urls.Volunteer)}
                         >
                             <Text style={styles.menuText}>{getTranslatedText("Volunteer")}</Text>
+                        </Icon.Button>
+                        <Icon.Button
+                            name={"edit-3"}
+                            size={20}
+                            color={Colours.PrimaryColour}
+                            style={styles.button}
+                            onPress={() => this._handleLink(Urls.Blog)}
+                        >
+                            <Text style={styles.menuText}>{getTranslatedText("Blog")}</Text>
                         </Icon.Button>
                         <Icon.Button
                             name={"award"}
@@ -114,5 +125,16 @@ export default class Sidebar extends Component<DrawerItemsProps> {
     private _handleNavigation(route: Routes): void {
         const { navigation } = this.props;
         navigation.navigate(route);
+    }
+
+    @autobind
+    private async _handleLink(url: string): Promise<void> {
+        await Linking.canOpenURL(url).then(
+            async isSupported => {
+                if (isSupported) {
+                    await Linking.openURL(url!);
+                }
+            }
+        );
     }
 }

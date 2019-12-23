@@ -8,12 +8,9 @@ import {
 } from "react-navigation";
 import { Routes, TabIcons } from "./constants";
 import { ViewStyle } from "react-native";
-import AboutScreen from "../screens/AboutScreen/AboutScreen";
 import AlphabetsScreen from "../screens/AlphabetsScreen/AlphabetsScreen";
-import BlogScreen from "../screens/BlogScreen/BlogScreen";
 import Colours from "../lib/colours/colours";
 import CreditsScreen from "../screens/CreditsScreen/CreditsScreen";
-import DonateScreen from "../screens/DonateScreen/DonateScreen";
 import Icon from "react-native-vector-icons/Feather";
 import NameListScreen from "../screens/NameListScreen/NameListScreen";
 import NameScreen from "../screens/NameScreen/NameScreen";
@@ -24,7 +21,6 @@ import SettingsScreen from "../screens/SettingsScreen/SettingsScreen";
 import Sidebar from "./sidebar";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import SubmitNameScreen from "../screens/SubmitNameScreen/SubmitNameScreen";
-import VolunteerScreen from "../screens/VolunteerScreen/VolunteerScreen";
 
 const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactElement<any> => {
     const { tintColor } = iconProps;
@@ -33,12 +29,8 @@ const getTabIcon = (iconProps: TabBarIconProps, routeName: string): React.ReactE
 };
 
 const SettingsNavigation = createDrawerNavigator({
-    [Routes.Settings]:  { screen: SettingsScreen },
-    [Routes.About]:     { screen: AboutScreen },
-    [Routes.Blog]:      { screen: BlogScreen },
-    [Routes.Donate]:    { screen: DonateScreen },
-    [Routes.Volunteer]: { screen: VolunteerScreen },
-    [Routes.Credits]:   { screen: CreditsScreen },
+    [Routes.Settings]: { screen: SettingsScreen },
+    [Routes.Credits]:  { screen: CreditsScreen },
 }, {
     contentComponent: Sidebar,
     drawerPosition:   "right",

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         height:       70,
         marginBottom: 16,
         marginTop:    56,
-        resizeMode:   "center",
+        resizeMode:   "contain",
         width:        "70%",
     },
 });

@@ -1,4 +1,4 @@
-package com.yorubaname;
+package com.renact.yorubaname;
 
 import android.app.Application;
 import android.util.Log;
@@ -7,7 +7,7 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
-import net.no_mad.tts.TextToSpeechPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;

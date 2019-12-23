@@ -1,5 +1,5 @@
+import { appearance, fontFamily } from "../../lib/styles/styles";
 import { autobind } from "core-decorators";
-import {appearance, fontFamily} from "../../lib/styles/styles";
 import { NavigationScreenProps } from "react-navigation";
 import { StyleSheet, Text, View } from "react-native";
 import Colours from "../../lib/colours/colours";
@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
 
 class BottomNavigation extends Component<NavigationScreenProps> {
     render() {
+        const { navigation } = this.props;
+
         return (
             <View style={styles.bottomBar}>
                 <Icon.Button
@@ -41,13 +43,16 @@ class BottomNavigation extends Component<NavigationScreenProps> {
                 >
                     <Text style={styles.buttonText}>Back</Text>
                 </Icon.Button>
-                <Icon.Button
-                    name={"menu"}
-                    onPress={this._handleDrawerToggle}
-                    color={Colours.PrimaryColour}
-                    style={styles.button}
-                    size={30}
-                />
+                {navigation.toggleDrawer
+                    ? <Icon.Button
+                        name={"menu"}
+                        onPress={this._handleDrawerToggle}
+                        color={Colours.PrimaryColour}
+                        style={styles.button}
+                        size={30}
+                    />
+                    : null
+                }
             </View>
         );
     }

@@ -34,7 +34,9 @@ target 'yorubaname' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
-  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 
   target 'yorubanameTests' do
     inherit! :search_paths

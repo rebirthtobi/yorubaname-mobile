@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
     },
 });
 
-type ContentType = EtymologyType[] | string | GeoLocationType[];
+type ContentType = EtymologyType[] | string | GeoLocationType[] | string[];
 
 interface NameSectionType {
     title: string;
     content: ContentType;
-    onPress?: () => Promise<void>;
+    onPress?: (url: string) => Promise<void>;
 }
 
 function isEtymology(content: ContentType): content is EtymologyType[] {
@@ -54,7 +54,7 @@ function isGeoLocation(content: ContentType): content is GeoLocationType[] {
     return !!content.length && (content as GeoLocationType[])[0].place !== undefined;
 }
 
-function getContent(content: ContentType, onPress?: () => Promise<void>): ReactElement[] | ReactElement {
+function getContent(content: ContentType, onPress?: (url: string) => Promise<void>): ReactElement[] | ReactElement {
     if (isEtymology(content)) {
         return content.map((item, index) => (
             <View style={styles.contentWrapper} key={index}>
@@ -72,8 +72,19 @@ function getContent(content: ContentType, onPress?: () => Promise<void>): ReactE
         );
     }
 
+    if (onPress && Array.isArray(content)) {
+        return content.map((item, index) => {
+            const onClick = () => onPress(item);
+            return (
+                <Text style={styles.contentStyle} onPress={onClick} key={index}>
+                    {item}
+                </Text>
+            );
+        });
+    }
+
     return (
-        <Text style={styles.contentStyle} onPress={onPress}>
+        <Text style={styles.contentStyle}>
             {content}
         </Text>
     );

@@ -6,6 +6,7 @@ enum Urls {
     LinkedIn = "https://www.linkedin.com/in/taiwotobi",
     GetNameByAlphabet= "http://www.yorubaname.com/v1/search/alphabet/",
     SuggestName = "http://www.yorubaname.com/v1/suggestions/",
+    PrivacyPolicy = "https://sites.google.com/view/yorubaname/home",
 }
 
 export default Urls;

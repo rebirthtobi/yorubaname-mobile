@@ -1,5 +1,6 @@
+import {getAlphabetsArray} from "../alphabet/alphabet";
 import { DataManagerType, ItemType, NameType } from "../dataManager/data";
-import DataManager, { getAlphabetsArray } from "../dataManager/dataManager";
+import DataManager from "../dataManager/dataManager";
 
 export interface SearchProps {
     isSearchable: boolean;
