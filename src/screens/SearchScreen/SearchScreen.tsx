@@ -42,7 +42,7 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
 
     @autobind
     private _handleTextChange(searchText: string): void {
-        this.setState({ searchText });
+        this.setState({ searchText: searchText.trim() });
     }
 
     @autobind

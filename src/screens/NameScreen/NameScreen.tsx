@@ -80,7 +80,7 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
                     {famousPeople ? <NameSection title={"Famous People"} content={famousPeople}/> : null}
                     {variants ? <NameSection title={"Variants"} content={variants}/> : null}
                     { media
-                        ? <NameSection title={"Media Links"} content={media} onPress={this._handleLinkClick(media)}/>
+                        ? <NameSection title={"Media Links"} content={media.split("\n")} onPress={this._handleLinkClick}/>
                         : null
                     }
                 </ScrollView>
@@ -107,13 +107,10 @@ class NameScreen extends Component<NavigationScreenProps, NameScreenState> {
     }
 
     @autobind
-    private _handleLinkClick(url: string): () => Promise<void> {
-        // tslint:disable-next-line:only-arrow-functions
-        return async function() {
-            if (await Linking.canOpenURL(url)) {
-                await Linking.openURL(url);
-            }
-        };
+    private async _handleLinkClick(url: string): Promise<void> {
+        if (await Linking.canOpenURL(url)) {
+            await Linking.openURL(url);
+        }
     }
 }
 

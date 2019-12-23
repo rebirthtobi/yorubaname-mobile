@@ -2,6 +2,7 @@ import { autobind } from "core-decorators";
 import { fontFamily } from "../../lib/styles/styles";
 import { NavigationScreenProps } from "react-navigation";
 import {
+    KeyboardAvoidingView,
     StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
 import ApiManager from "../../lib/apiManager/apiManager";
@@ -94,7 +95,7 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
         const { details, email, name } = this.state;
 
         return (
-            <View style={styles.wrapper}>
+            <KeyboardAvoidingView style={styles.wrapper} enabled behavior={"padding"}>
                 <View style={styles.headerContainer}>
                     <Icon
                         name={"arrow-left"}
@@ -134,7 +135,7 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
                         </Text>
                     </View>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 

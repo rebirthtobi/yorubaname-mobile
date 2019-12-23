@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     },
     logoStyle: {
         alignSelf:    "center",
-        height:       150,
+        height:       70,
         marginBottom: 16,
-        resizeMode:   "center",
+        resizeMode:   "contain",
         width:        "80%",
     },
 });
