@@ -1,10 +1,10 @@
 import { autobind } from "core-decorators";
 import { fontFamily } from "../../lib/styles/styles";
-import { NavigationScreenProps } from "react-navigation";
 import {
     KeyboardAvoidingView,
     StyleSheet, Text, TouchableOpacity, View,
 } from "react-native";
+import { NavigationScreenProps } from "react-navigation";
 import ApiManager from "../../lib/apiManager/apiManager";
 import Colours from "../../lib/colours/colours";
 import FloatingLabelInput from "../../components/FloatingTextField/FloatingTextField";
@@ -87,7 +87,7 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
             details:   "",
             email:     "",
             locations: [],
-            name:      navigation.getParam("name"),
+            name:      navigation.getParam("name") ? navigation.getParam("name") : "",
         };
     }
 
@@ -175,7 +175,11 @@ class SubmitNameScreen extends Component<NavigationScreenProps, SubmitNameState>
 
         if (isValid(details) && isEmailValid(email) && isValid(name)) {
             try {
-                await ApiManager.submitSuggestedName({ details, email, name });
+                await ApiManager.submitSuggestedName({
+                    details: details.trim(),
+                    email:   email.trim(),
+                    name:    name.trim(),
+                });
                 this._resetForm();
                 Toast.show(getTranslatedText("Suggested name submitted successfully"), {
                     animation:   true,

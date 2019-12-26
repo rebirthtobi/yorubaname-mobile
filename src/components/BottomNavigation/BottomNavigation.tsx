@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         alignItems:      "center",
         backgroundColor: Colours.SecondaryColour,
         flexDirection:   "row",
-        height:          49,
+        height:          60,
         justifyContent:  "space-between",
         marginTop:       "auto",
         padding:         0,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color:      Colours.GreyColour,
         fontFamily,
-        fontSize:   16,
+        fontSize:   18,
         fontWeight: "bold",
     },
     iconStyle: { marginRight: 0 },

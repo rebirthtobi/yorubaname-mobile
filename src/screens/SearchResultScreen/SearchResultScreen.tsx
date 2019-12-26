@@ -54,7 +54,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
             isSearchable: navigation.getParam("isSearchable"),
             isSearching:  true,
             searchResult: [],
-            searchText:   navigation.getParam("searchText"),
+            searchText:   navigation.getParam("searchText") ? navigation.getParam("searchText") : "",
         };
     }
 
@@ -87,13 +87,13 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
 
     @autobind
     private _handleTextChange(searchText: string): void {
-        this.setState({ searchText: searchText.trim() });
+        this.setState({ searchText });
     }
 
     @autobind
     private async _searchName() {
         const { searchText } = this.state;
-        const searchProps: SearchProps = getSearchStringProps(searchText);
+        const searchProps: SearchProps = getSearchStringProps(searchText.trim());
         this.setState({ isSearching: true });
 
         if (!searchProps.isSearchable) {
@@ -102,7 +102,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
                 isSearching:  false,
             });
         } else {
-            await this._processResult(searchProps.searchKey, searchText);
+            await this._processResult(searchProps.searchKey, searchText.trim());
         }
     }
 
@@ -158,7 +158,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
         const { navigation } = this.props;
         const { searchText } = this.state;
 
-        navigation.navigate(Routes.SubmitName, { name: searchText });
+        navigation.navigate(Routes.SubmitName, { name: searchText.trim() });
     }
 
     @autobind

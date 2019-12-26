@@ -42,7 +42,7 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
 
     @autobind
     private _handleTextChange(searchText: string): void {
-        this.setState({ searchText: searchText.trim() });
+        this.setState({ searchText });
     }
 
     @autobind
@@ -57,11 +57,11 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
         const { navigation } = this.props;
 
         if (searchText && searchText.trim()) {
-            const searchProps = getSearchStringProps(searchText);
+            const searchProps = getSearchStringProps(searchText.trim());
             navigation.navigate(Routes.SearchResult, {
                 isSearchable: searchProps.isSearchable,
                 searchKey:    searchProps.searchKey,
-                searchText,
+                searchText:   searchText.trim(),
             });
         }
     }
