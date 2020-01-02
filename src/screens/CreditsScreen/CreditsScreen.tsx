@@ -31,10 +31,10 @@ class CreditsScreen extends Component<NavigationScreenProps> {
             <ScrollView>
                 <Brand/>
                 <Text style={styles.creditTextStyle}>
-                    Yoruba Name App is build out of a thirst to contribute to the yoruba name project. It is also
-                    a thoughtful thinking that as people gets to open applications faster, building a mobile app could
-                    make it faster for people ti access the resources the yorubaname project tend to answer and at the
-                    long run, contributing to the overall objective of the yoruba name project.
+                    The YorubaName App is built out of a thirst to contribute to the Yorùbá Names Project, and to afford
+                    people a chance to better access the names on the go, via a mobile app, in a way that the web
+                    application might not be able to support. The app will continue to be in development, and more
+                    functionalities will be added as time goes on. Thank you.
                 </Text>
 
                 <Text style={styles.creditTextStyle}>
