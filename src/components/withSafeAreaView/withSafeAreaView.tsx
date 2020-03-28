@@ -1,4 +1,5 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-navigation";
+import { StyleSheet } from "react-native";
 import Colours from "../../lib/colours/colours";
 import React from "react";
 

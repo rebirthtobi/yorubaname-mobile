@@ -1,9 +1,11 @@
 {
     "root": true,
     "extends": "@react-native-community",
+    "parser": "@typescript-eslint/parser",
     "plugins": [
         "react",
-        "sort-imports-es6-autofix"
+        "sort-imports-es6-autofix",
+        "@typescript-eslint"
     ],
     "rules": {
         "array-bracket-newline": "error",

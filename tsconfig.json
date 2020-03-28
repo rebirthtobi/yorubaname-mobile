@@ -4,10 +4,12 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "incremental": true,
     "isolatedModules": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "lib": ["es7"],
     "moduleResolution": "node",
+    "module": "commonjs",
     "noEmit": true,
     "strict": true,
     "target": "esnext"

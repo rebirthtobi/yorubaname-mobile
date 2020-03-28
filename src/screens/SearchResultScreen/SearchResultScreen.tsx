@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         color:    Colours.GreyColour,
         fontSize: 20,
     },
-});
+    wrapper: { flex: 1 },
+})
 
 interface SearchResultState {
     searchText: string;
@@ -67,7 +68,7 @@ class SearchResultScreen extends Component<NavigationScreenProps, SearchResultSt
             isSearchable, isSearching, searchResult, searchText,
         } = this.state;
         return (
-            <View>
+            <View style={styles.wrapper}>
                 <SearchField
                     searchText={searchText}
                     onChangeText={this._handleTextChange}

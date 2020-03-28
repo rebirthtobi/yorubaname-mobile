@@ -72,7 +72,10 @@ const styles = StyleSheet.create({
         fontSize:          24,
         paddingHorizontal: 8,
     },
-    wrapper: { backgroundColor: Colours.GreyColour },
+    wrapper: {
+        backgroundColor: Colours.SecondaryColour,
+        flex:            1,
+    },
 });
 
 interface NameListState {

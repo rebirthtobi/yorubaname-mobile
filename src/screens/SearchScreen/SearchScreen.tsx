@@ -1,8 +1,10 @@
 import { autobind } from "core-decorators";
 import { getSearchStringProps } from "../../lib/search/search";
 import { NavigationScreenProps } from "react-navigation";
+import {
+    Platform, StatusBar, StyleSheet, View,
+} from "react-native";
 import { Routes } from "../../navigation/constants";
-import { StatusBar, StyleSheet, View } from "react-native";
 import Brand from "../../components/Brand/Brand";
 import Colours from "../../lib/colours/colours";
 import React, { Component } from "react";
@@ -24,10 +26,7 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
 
         return (
             <View style={styles.container}>
-                <StatusBar
-                    backgroundColor={Colours.PrimaryColour}
-                    barStyle={"light-content"}
-                />
+                {this._getStatusBar()}
                 <Brand />
                 <SearchField
                     searchText={searchText}
@@ -43,6 +42,24 @@ class SearchScreen extends Component<NavigationScreenProps, SearchState> {
     @autobind
     private _handleTextChange(searchText: string): void {
         this.setState({ searchText });
+    }
+
+    @autobind
+    private _getStatusBar(): React.ReactElement {
+        return Platform.select({
+            android: (
+                <StatusBar
+                    backgroundColor={Colours.PrimaryColour}
+                    barStyle={"light-content"}
+                />
+            ),
+            ios: (
+                <StatusBar
+                    backgroundColor={Colours.PrimaryColour}
+                    barStyle={"dark-content"}
+                />
+            ),
+        });
     }
 
     @autobind
